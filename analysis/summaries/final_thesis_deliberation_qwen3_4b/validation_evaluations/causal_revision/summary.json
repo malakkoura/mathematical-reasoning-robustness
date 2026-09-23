@@ -1,0 +1,56 @@
+{
+  "condition": "causal_revision",
+  "rows": 990,
+  "correct": 431,
+  "accuracy": 0.4353535353535353,
+  "by_dimension": {
+    "0": {
+      "rows": 198,
+      "correct": 108,
+      "accuracy": 0.5454545454545454
+    },
+    "1": {
+      "rows": 198,
+      "correct": 101,
+      "accuracy": 0.51010101010101
+    },
+    "2": {
+      "rows": 198,
+      "correct": 35,
+      "accuracy": 0.17676767676767677
+    },
+    "4": {
+      "rows": 198,
+      "correct": 98,
+      "accuracy": 0.494949494949495
+    },
+    "6": {
+      "rows": 198,
+      "correct": 89,
+      "accuracy": 0.4494949494949495
+    }
+  },
+  "corrections": 5,
+  "regressions": 222,
+  "stable_correct": 426,
+  "stable_incorrect": 337,
+  "generated_tokens": {
+    "mean": 108.22222222222223,
+    "max": 128,
+    "cap_hits": 408
+  },
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b_final_thesis_seeds/seed_42/adapters/budget_original_plus_dim2",
+  "first_pass_file": "outputs/final_thesis_deliberation_qwen3_4b/first_pass_traces/first_pass_traces.jsonl",
+  "max_new_tokens": 128,
+  "decoding": "manual greedy cached decode; identical revision prompt/token IDs across causal and bidirectional-trace conditions",
+  "attention_semantics": {
+    "causal_revision": "native causal attention over fixed review prefix and generated revision",
+    "bidir_trace_revision": "bidirectional attention over fixed review prefix; autoregressive causal revision tokens"
+  },
+  "model_level_future_leakage_check": {
+    "future_token_leakage_max_abs_delta": 0.0,
+    "passed": true
+  },
+  "test_set_used": false
+}

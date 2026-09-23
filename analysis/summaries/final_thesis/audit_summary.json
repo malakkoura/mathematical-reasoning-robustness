@@ -1,0 +1,7 @@
+{
+  "exact_model_checkpoint_name_primary": "Qwen/Qwen3-4B-Base",
+  "held_out_test_records_opened": false,
+  "new_files_root": "analysis/final_thesis",
+  "slurm_available_locally": false,
+  "status_rows": 36
+}

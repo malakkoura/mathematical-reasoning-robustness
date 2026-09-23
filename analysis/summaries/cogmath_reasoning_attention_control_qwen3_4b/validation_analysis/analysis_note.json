@@ -1,0 +1,12 @@
+{
+  "test_set_used": false,
+  "max_new_tokens": 512,
+  "conditions_analyzed": [
+    "causal_original_only",
+    "causal_original_plus_all",
+    "causal_original_plus_dim2",
+    "prompt_bidir_original_only",
+    "prompt_bidir_original_plus_all",
+    "prompt_bidir_original_plus_dim2"
+  ]
+}

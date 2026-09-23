@@ -1,0 +1,5 @@
+prediction_file,rows,mean_generated_tokens,max_generated_tokens,cap_hit_count,max_new_tokens_in_summary
+outputs/cogmath_attention/evaluations/validation/causal/predictions.jsonl,1547,13.764705882352942,64,182,64
+outputs/cogmath_attention/evaluations/validation/prompt_bidirectional/predictions.jsonl,1547,13.870071105365223,64,187,64
+outputs/cogmath_attention_full_ft/evaluations/validation/causal/predictions.jsonl,1547,14.646412411118293,64,189,64
+outputs/cogmath_attention_full_ft/evaluations/validation/prompt_bidirectional/predictions.jsonl,1547,15.081447963800905,64,190,64

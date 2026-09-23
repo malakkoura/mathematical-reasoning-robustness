@@ -1,0 +1,18 @@
+{
+  "records_per_condition": 990,
+  "aligned_pairs": 990,
+  "record_sets_match": true,
+  "bootstrap_repetitions": 10000,
+  "seed": 42,
+  "outputs": [
+    "augmentation_regressions.jsonl",
+    "augmentation_rescues.jsonl",
+    "bootstrap_results.csv",
+    "conditional_robustness.csv",
+    "consistency_distribution.csv",
+    "mcnemar_results.csv",
+    "paired_analysis_summary.md",
+    "paired_gain_loss.csv",
+    "robustness_summary.csv"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "experiment": "cogmath_reasoning_supervision_qwen3_4b",
+  "condition": "reasoning_original_only",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "train_file": "experiments/cogmath_reasoning_supervision/data/train_original_only_reasoning.jsonl",
+  "output_dir": "outputs/cogmath_reasoning_supervision_qwen3_4b/adapters/reasoning_original_only",
+  "seed": 42,
+  "epochs": 2,
+  "learning_rate": 0.0002,
+  "max_length": 768,
+  "max_length_status": "cluster tokenizer check: max sequence length 554; 2/923 exceed 512; 0 exceed 768",
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 16,
+  "effective_batch_size": 16,
+  "warmup_steps": 20,
+  "bf16": true,
+  "gradient_checkpointing": true,
+  "use_cache": false,
+  "completion_only_loss": true,
+  "no_silent_truncation": true,
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "bias": "none",
+    "task_type": "CAUSAL_LM",
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  }
+}

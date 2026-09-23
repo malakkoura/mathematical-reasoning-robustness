@@ -1,0 +1,379 @@
+{
+  "passed": true,
+  "failures": [],
+  "checks": [
+    {
+      "name": "source row/dimension counts match unique-full inputs",
+      "passed": true,
+      "details": {
+        "reasoning_original_only": {
+          "0": 923
+        },
+        "reasoning_original_plus_dim1": {
+          "0": 923,
+          "1": 923
+        },
+        "reasoning_original_plus_dim2": {
+          "0": 923,
+          "2": 923
+        },
+        "reasoning_original_plus_dim4": {
+          "0": 923,
+          "4": 923
+        },
+        "reasoning_original_plus_dim6": {
+          "0": 923,
+          "6": 920
+        },
+        "reasoning_original_plus_dim2_dim4": {
+          "0": 923,
+          "2": 923,
+          "4": 923
+        },
+        "reasoning_original_plus_all": {
+          "0": 923,
+          "1": 923,
+          "2": 923,
+          "4": 923,
+          "6": 920
+        }
+      }
+    },
+    {
+      "name": "post-exclusion row counts exact",
+      "passed": true,
+      "details": {
+        "reasoning_original_only": 923,
+        "reasoning_original_plus_dim1": 1846,
+        "reasoning_original_plus_dim2": 1846,
+        "reasoning_original_plus_dim4": 1846,
+        "reasoning_original_plus_dim6": 1840,
+        "reasoning_original_plus_dim2_dim4": 2769,
+        "reasoning_original_plus_all": 4609
+      }
+    },
+    {
+      "name": "post-exclusion dimension counts exact",
+      "passed": true,
+      "details": {
+        "reasoning_original_only": {
+          "0": 923
+        },
+        "reasoning_original_plus_dim1": {
+          "0": 923,
+          "1": 923
+        },
+        "reasoning_original_plus_dim2": {
+          "0": 923,
+          "2": 923
+        },
+        "reasoning_original_plus_dim4": {
+          "0": 923,
+          "4": 923
+        },
+        "reasoning_original_plus_dim6": {
+          "0": 923,
+          "6": 917
+        },
+        "reasoning_original_plus_dim2_dim4": {
+          "0": 923,
+          "2": 923,
+          "4": 923
+        },
+        "reasoning_original_plus_all": {
+          "0": 923,
+          "1": 923,
+          "2": 923,
+          "4": 923,
+          "6": 917
+        }
+      }
+    },
+    {
+      "name": "no validation/test leakage in materialized safe rows",
+      "passed": true,
+      "details": {
+        "train_validation_overlap": [],
+        "train_test_overlap": [],
+        "validation_test_overlap": [],
+        "split_source": "experiments/cogmath_augmentation/splits.json"
+      }
+    },
+    {
+      "name": "Dim1/Dim2/Dim4 reasoning conditions unblocked",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "no unexpected invalid reasoning traces remain",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "explicit Dim6 exclusions documented exactly",
+      "passed": true,
+      "details": {
+        "reasoning_original_only": {},
+        "reasoning_original_plus_dim1": {},
+        "reasoning_original_plus_dim2": {},
+        "reasoning_original_plus_dim4": {},
+        "reasoning_original_plus_dim6": {
+          "GSM8K@855_dim6": "transformed setup does not yield the required valid integer-age solution",
+          "GSM8K@1134_dim6": "reasoning concludes 5 while prepared final_answer is 75",
+          "GSM8K@1155_dim6": "reasoning states the transformed problem cannot be calculated"
+        },
+        "reasoning_original_plus_dim2_dim4": {},
+        "reasoning_original_plus_all": {
+          "GSM8K@855_dim6": "transformed setup does not yield the required valid integer-age solution",
+          "GSM8K@1134_dim6": "reasoning concludes 5 while prepared final_answer is 75",
+          "GSM8K@1155_dim6": "reasoning states the transformed problem cannot be calculated"
+        }
+      }
+    },
+    {
+      "name": "no unintended source records excluded",
+      "passed": true,
+      "details": {
+        "reasoning_original_only": [],
+        "reasoning_original_plus_dim1": [],
+        "reasoning_original_plus_dim2": [],
+        "reasoning_original_plus_dim4": [],
+        "reasoning_original_plus_dim6": [
+          "GSM8K@1134_dim6",
+          "GSM8K@1155_dim6",
+          "GSM8K@855_dim6"
+        ],
+        "reasoning_original_plus_dim2_dim4": [],
+        "reasoning_original_plus_all": [
+          "GSM8K@1134_dim6",
+          "GSM8K@1155_dim6",
+          "GSM8K@855_dim6"
+        ]
+      }
+    },
+    {
+      "name": "six-condition training is ready when required",
+      "passed": true,
+      "details": true
+    },
+    {
+      "name": "training max_length configured consistently",
+      "passed": true,
+      "details": {
+        "constant": 1536,
+        "dataset_report": 1536,
+        "resolved_config": 1536,
+        "train_array_contains": true,
+        "smoke_contains": true
+      }
+    },
+    {
+      "name": "validation generation remains 512 tokens",
+      "passed": true,
+      "details": {
+        "resolved_config": 512,
+        "eval_script_contains": true
+      }
+    },
+    {
+      "name": "tokenizer check available when required",
+      "passed": true,
+      "details": {
+        "tokenizer_status": "available",
+        "character_lengths": {
+          "min": 295,
+          "median": 676,
+          "p90": 1010.0,
+          "p95": 1129.0,
+          "p99": 1412.4399999999987,
+          "max": 2882
+        },
+        "whitespace_token_lengths": {
+          "min": 49,
+          "median": 120,
+          "p90": 182.0,
+          "p95": 202.0,
+          "p99": 250.0,
+          "max": 508
+        },
+        "candidate_max_lengths": [
+          768,
+          1024,
+          1536,
+          2048
+        ],
+        "chosen_max_length": 1536,
+        "chosen_max_length_status": "exact",
+        "examples_over_candidate_lengths": {
+          "768": 4,
+          "1024": 2,
+          "1536": 0,
+          "2048": 0
+        },
+        "token_lengths": {
+          "min": 90,
+          "median": 213,
+          "p90": 318.0,
+          "p95": 354.0,
+          "p99": 445.21999999999935,
+          "max": 1309
+        }
+      }
+    },
+    {
+      "name": "no sequence truncation at chosen max_length when tokenizer required",
+      "passed": true,
+      "details": {
+        "max_length": 1536,
+        "token_stats": {
+          "tokenizer_status": "available",
+          "character_lengths": {
+            "min": 295,
+            "median": 676,
+            "p90": 1010.0,
+            "p95": 1129.0,
+            "p99": 1412.4399999999987,
+            "max": 2882
+          },
+          "whitespace_token_lengths": {
+            "min": 49,
+            "median": 120,
+            "p90": 182.0,
+            "p95": 202.0,
+            "p99": 250.0,
+            "max": 508
+          },
+          "candidate_max_lengths": [
+            768,
+            1024,
+            1536,
+            2048
+          ],
+          "chosen_max_length": 1536,
+          "chosen_max_length_status": "exact",
+          "examples_over_candidate_lengths": {
+            "768": 4,
+            "1024": 2,
+            "1536": 0,
+            "2048": 0
+          },
+          "token_lengths": {
+            "min": 90,
+            "median": 213,
+            "p90": 318.0,
+            "p95": 354.0,
+            "p99": 445.21999999999935,
+            "max": 1309
+          }
+        }
+      }
+    },
+    {
+      "name": "training array mappings exact",
+      "passed": true,
+      "details": [
+        "reasoning_original_plus_dim1",
+        "reasoning_original_plus_dim2",
+        "reasoning_original_plus_dim4",
+        "reasoning_original_plus_dim6",
+        "reasoning_original_plus_dim2_dim4",
+        "reasoning_original_plus_all"
+      ]
+    },
+    {
+      "name": "validation evaluation maps all seven conditions",
+      "passed": true,
+      "details": [
+        "reasoning_original_only",
+        "reasoning_original_plus_dim1",
+        "reasoning_original_plus_dim2",
+        "reasoning_original_plus_dim4",
+        "reasoning_original_plus_dim6",
+        "reasoning_original_plus_dim2_dim4",
+        "reasoning_original_plus_all"
+      ]
+    },
+    {
+      "name": "no test evaluation access",
+      "passed": true,
+      "details": {
+        "eval_script": "evaluate_validation_array.sh"
+      }
+    },
+    {
+      "name": "output root isolated",
+      "passed": true,
+      "details": {
+        "output_root": "outputs/cogmath_reasoning_augmentation_qwen3_4b"
+      }
+    },
+    {
+      "name": "validation record count is 990",
+      "passed": true,
+      "details": "experiments/cogmath_augmentation/validation_eval.jsonl"
+    },
+    {
+      "name": "python syntax parses",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_augmentation/analyze_reasoning_augmentation.py": "ok",
+        "experiments/cogmath_reasoning_augmentation/evaluate_reasoning_augmentation.py": "ok",
+        "experiments/cogmath_reasoning_augmentation/prepare_reasoning_augmentation.py": "ok",
+        "experiments/cogmath_reasoning_augmentation/reasoning_aug_utils.py": "ok",
+        "experiments/cogmath_reasoning_augmentation/static_validation.py": "ok",
+        "experiments/cogmath_reasoning_augmentation/train_reasoning_augmentation.py": "ok"
+      }
+    },
+    {
+      "name": "json files parse",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_augmentation/data/dataset_report.json": "ok",
+        "experiments/cogmath_reasoning_augmentation/resolved_configs/reasoning_augmentation.json": "ok",
+        "experiments/cogmath_reasoning_augmentation/static_validation_report.json": "ok"
+      }
+    },
+    {
+      "name": "slurm bash syntax",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_augmentation/slurm/analyze_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_augmentation/slurm/evaluate_validation_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_augmentation/slurm/static_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_augmentation/slurm/train_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_augmentation/slurm/train_smoke_worst_case.sh": {
+          "returncode": 0,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "name": "all required training datasets are materialized",
+      "passed": true,
+      "details": {
+        "reasoning_original_only": true,
+        "reasoning_original_plus_dim1": true,
+        "reasoning_original_plus_dim2": true,
+        "reasoning_original_plus_dim4": true,
+        "reasoning_original_plus_dim6": true,
+        "reasoning_original_plus_dim2_dim4": true,
+        "reasoning_original_plus_all": true
+      }
+    }
+  ],
+  "ready_for_six_condition_training": true,
+  "blocked_conditions": {},
+  "note": "Use --require-ready before training; it passes only when explicit exclusions and all materialized counts match expectations."
+}

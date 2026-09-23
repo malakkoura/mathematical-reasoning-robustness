@@ -1,0 +1,1 @@
+sample_type,base_id,record_id,question,gold_answer,original_only_response,original_only_extracted,original_only_correct,original_plus_dim2_response,original_plus_dim2_extracted,original_plus_dim2_correct,human_error_label,notes

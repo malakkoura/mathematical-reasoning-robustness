@@ -1,0 +1,613 @@
+{
+  "passed": true,
+  "failures": [],
+  "checks": [
+    {
+      "name": "placement target modules exact",
+      "passed": true,
+      "details": {
+        "q_only": [
+          "q_proj"
+        ],
+        "qv": [
+          "q_proj",
+          "v_proj"
+        ],
+        "attention_all": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj"
+        ],
+        "mlp_only": [
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "all_linear": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      }
+    },
+    {
+      "name": "new training array mapping exact",
+      "passed": true,
+      "details": [
+        "q_only_original_only",
+        "q_only_plus_dim2",
+        "qv_original_only",
+        "qv_plus_dim2",
+        "attention_all_original_only",
+        "attention_all_plus_dim2",
+        "mlp_only_original_only",
+        "mlp_only_plus_dim2"
+      ]
+    },
+    {
+      "name": "validation array mapping exact",
+      "passed": true,
+      "details": [
+        "q_only_original_only",
+        "q_only_plus_dim2",
+        "qv_original_only",
+        "qv_plus_dim2",
+        "attention_all_original_only",
+        "attention_all_plus_dim2",
+        "mlp_only_original_only",
+        "mlp_only_plus_dim2"
+      ]
+    },
+    {
+      "name": "only eight new adapters are trained",
+      "passed": true,
+      "details": [
+        "q_only_original_only",
+        "q_only_plus_dim2",
+        "qv_original_only",
+        "qv_plus_dim2",
+        "attention_all_original_only",
+        "attention_all_plus_dim2",
+        "mlp_only_original_only",
+        "mlp_only_plus_dim2"
+      ]
+    },
+    {
+      "name": "expected source dimension counts",
+      "passed": true,
+      "details": {
+        "original_only": {
+          "rows": 923,
+          "unique_base_ids": 923,
+          "counts_by_dimension": {
+            "0": 923
+          },
+          "duplicate_record_ids": []
+        },
+        "plus_dim2": {
+          "rows": 1846,
+          "unique_base_ids": 923,
+          "counts_by_dimension": {
+            "0": 923,
+            "2": 923
+          },
+          "duplicate_record_ids": []
+        }
+      }
+    },
+    {
+      "name": "no duplicate source IDs",
+      "passed": true,
+      "details": {
+        "original_only": [],
+        "plus_dim2": []
+      }
+    },
+    {
+      "name": "all source datasets have 923 base IDs",
+      "passed": true,
+      "details": {
+        "original_only": 923,
+        "plus_dim2": 923
+      }
+    },
+    {
+      "name": "condition-to-dataset mapping preserves matched pairs",
+      "passed": true,
+      "details": {
+        "q_only_original_only": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "q_only_plus_dim2": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "qv_original_only": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "qv_plus_dim2": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "attention_all_original_only": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "attention_all_plus_dim2": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "mlp_only_original_only": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "mlp_only_plus_dim2": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl"
+      }
+    },
+    {
+      "name": "training scripts use max_steps 232",
+      "passed": true,
+      "details": {
+        "train": true,
+        "smoke": true
+      }
+    },
+    {
+      "name": "training scripts use max_length 1536",
+      "passed": true,
+      "details": {
+        "train": true,
+        "smoke": true
+      }
+    },
+    {
+      "name": "fixed hyperparameters",
+      "passed": true,
+      "details": {
+        "experiment": "cogmath_reasoning_lora_placement_qwen3_4b",
+        "model_name": "Qwen/Qwen3-4B-Base",
+        "output_root": "outputs/cogmath_reasoning_lora_placement_qwen3_4b",
+        "new_training_conditions": [
+          "q_only_original_only",
+          "q_only_plus_dim2",
+          "qv_original_only",
+          "qv_plus_dim2",
+          "attention_all_original_only",
+          "attention_all_plus_dim2",
+          "mlp_only_original_only",
+          "mlp_only_plus_dim2"
+        ],
+        "analysis_conditions": [
+          "q_only_original_only",
+          "q_only_plus_dim2",
+          "qv_original_only",
+          "qv_plus_dim2",
+          "attention_all_original_only",
+          "attention_all_plus_dim2",
+          "mlp_only_original_only",
+          "mlp_only_plus_dim2",
+          "all_linear_original_only",
+          "all_linear_plus_dim2"
+        ],
+        "placements": {
+          "q_only": [
+            "q_proj"
+          ],
+          "qv": [
+            "q_proj",
+            "v_proj"
+          ],
+          "attention_all": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj"
+          ],
+          "mlp_only": [
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "all_linear": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ]
+        },
+        "max_steps": 232,
+        "training_max_length": 1536,
+        "validation_max_new_tokens": 512,
+        "seed": 42,
+        "learning_rate": 0.0002,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "warmup_steps": 20,
+        "bf16": true,
+        "gradient_checkpointing": true,
+        "use_cache": false,
+        "lora": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05
+        },
+        "all_linear_reference": "Reused from completed budget-control budget_original_only and budget_original_plus_dim2 outputs."
+      }
+    },
+    {
+      "name": "validation max_new_tokens 512",
+      "passed": true,
+      "details": {
+        "config": 512,
+        "script": true
+      }
+    },
+    {
+      "name": "output roots are separate",
+      "passed": true,
+      "details": {
+        "output_root": "outputs/cogmath_reasoning_lora_placement_qwen3_4b",
+        "budget_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b"
+      }
+    },
+    {
+      "name": "validation record count is 990",
+      "passed": true,
+      "details": "experiments/cogmath_augmentation/validation_eval.jsonl"
+    },
+    {
+      "name": "analytic trainable parameter counts available",
+      "passed": true,
+      "details": {
+        "q_only": {
+          "target_modules": [
+            "q_proj"
+          ],
+          "estimated_trainable_parameters": 1916928,
+          "estimated_total_parameters_with_adapter": 4024385024,
+          "estimated_trainable_percentage": 0.04763281814657702,
+          "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+        },
+        "qv": {
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ],
+          "estimated_trainable_parameters": 2949120,
+          "estimated_total_parameters_with_adapter": 4025417216,
+          "estimated_trainable_percentage": 0.07326246800649645,
+          "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+        },
+        "attention_all": {
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj"
+          ],
+          "estimated_trainable_parameters": 5898240,
+          "estimated_total_parameters_with_adapter": 4028366336,
+          "estimated_trainable_percentage": 0.14641766681668547,
+          "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+        },
+        "mlp_only": {
+          "target_modules": [
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "estimated_trainable_parameters": 10616832,
+          "estimated_total_parameters_with_adapter": 4033084928,
+          "estimated_trainable_percentage": 0.26324345233327057,
+          "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+        },
+        "all_linear": {
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ],
+          "estimated_trainable_parameters": 16515072,
+          "estimated_total_parameters_with_adapter": 4038983168,
+          "estimated_trainable_percentage": 0.4088918253199316,
+          "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+        }
+      }
+    },
+    {
+      "name": "all-linear reference compatibility when required",
+      "passed": true,
+      "details": {
+        "all_linear_original_only": {
+          "condition": "all_linear_original_only",
+          "reference_condition": "budget_original_only",
+          "adapter_dir_exists": true,
+          "predictions_exist": true,
+          "model_name": "Qwen/Qwen3-4B-Base",
+          "max_steps": 232,
+          "max_length": 1536,
+          "seed": 42,
+          "learning_rate": 0.0002,
+          "lora": {
+            "rank": 8,
+            "alpha": 16,
+            "dropout": 0.05,
+            "target_modules": [
+              "q_proj",
+              "k_proj",
+              "v_proj",
+              "o_proj",
+              "gate_proj",
+              "up_proj",
+              "down_proj"
+            ]
+          },
+          "eval_max_new_tokens": 512,
+          "compatible": true
+        },
+        "all_linear_plus_dim2": {
+          "condition": "all_linear_plus_dim2",
+          "reference_condition": "budget_original_plus_dim2",
+          "adapter_dir_exists": true,
+          "predictions_exist": true,
+          "model_name": "Qwen/Qwen3-4B-Base",
+          "max_steps": 232,
+          "max_length": 1536,
+          "seed": 42,
+          "learning_rate": 0.0002,
+          "lora": {
+            "rank": 8,
+            "alpha": 16,
+            "dropout": 0.05,
+            "target_modules": [
+              "q_proj",
+              "k_proj",
+              "v_proj",
+              "o_proj",
+              "gate_proj",
+              "up_proj",
+              "down_proj"
+            ]
+          },
+          "eval_max_new_tokens": 512,
+          "compatible": true
+        }
+      }
+    },
+    {
+      "name": "no held-out evaluation path referenced",
+      "passed": true,
+      "details": "checked without opening held-out evaluation data"
+    },
+    {
+      "name": "analysis job has no evaluation/training call",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_lora_place_analysis\n#SBATCH --time=00:30:00\n#SBATCH --output=experiments/cogmath_reasoning_lora_placement/logs/%x_%j.out\n#SBATCH --error=experiments/cogmath_reasoning_lora_placement/logs/%x_%j.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\n\nOUTPUT_ROOT=outputs/cogmath_reasoning_lora_placement_qwen3_4b\nmkdir -p experiments/cogmath_reasoning_lora_placement/logs\nmkdir -p \"${OUTPUT_ROOT}/validation_analysis\"\n\npython -u experiments/cogmath_reasoning_lora_placement/static_validation.py --require-existing-references\npython -u experiments/cogmath_reasoning_lora_placement/analyze_lora_placement.py \\\n  --output_dir \"${OUTPUT_ROOT}/validation_analysis\"\n"
+    },
+    {
+      "name": "python syntax parses",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_lora_placement/analyze_lora_placement.py": "ok",
+        "experiments/cogmath_reasoning_lora_placement/evaluate_lora_placement.py": "ok",
+        "experiments/cogmath_reasoning_lora_placement/placement_utils.py": "ok",
+        "experiments/cogmath_reasoning_lora_placement/prepare_lora_placement.py": "ok",
+        "experiments/cogmath_reasoning_lora_placement/static_validation.py": "ok",
+        "experiments/cogmath_reasoning_lora_placement/train_lora_placement.py": "ok"
+      }
+    },
+    {
+      "name": "json files parse",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_lora_placement/dataset_report.json": "ok",
+        "experiments/cogmath_reasoning_lora_placement/resolved_configs/lora_placement.json": "ok",
+        "experiments/cogmath_reasoning_lora_placement/static_validation_report.json": "ok"
+      }
+    },
+    {
+      "name": "slurm bash syntax",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_lora_placement/slurm/analyze_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_lora_placement/slurm/evaluate_validation_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_lora_placement/slurm/smoke_placement.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_lora_placement/slurm/static_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_lora_placement/slurm/train_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        }
+      }
+    }
+  ],
+  "dataset_report": {
+    "experiment": "cogmath_reasoning_lora_placement_qwen3_4b",
+    "model_name": "Qwen/Qwen3-4B-Base",
+    "output_root": "outputs/cogmath_reasoning_lora_placement_qwen3_4b",
+    "budget_reference_output_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+    "max_steps": 232,
+    "training_max_length": 1536,
+    "validation_max_new_tokens": 512,
+    "seed": 42,
+    "learning_rate": 0.0002,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "placements": {
+      "q_only": {
+        "target_modules": [
+          "q_proj"
+        ],
+        "estimated_trainable_parameters": 1916928,
+        "estimated_total_parameters_with_adapter": 4024385024,
+        "estimated_trainable_percentage": 0.04763281814657702,
+        "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+      },
+      "qv": {
+        "target_modules": [
+          "q_proj",
+          "v_proj"
+        ],
+        "estimated_trainable_parameters": 2949120,
+        "estimated_total_parameters_with_adapter": 4025417216,
+        "estimated_trainable_percentage": 0.07326246800649645,
+        "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+      },
+      "attention_all": {
+        "target_modules": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj"
+        ],
+        "estimated_trainable_parameters": 5898240,
+        "estimated_total_parameters_with_adapter": 4028366336,
+        "estimated_trainable_percentage": 0.14641766681668547,
+        "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+      },
+      "mlp_only": {
+        "target_modules": [
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "estimated_trainable_parameters": 10616832,
+        "estimated_total_parameters_with_adapter": 4033084928,
+        "estimated_trainable_percentage": 0.26324345233327057,
+        "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+      },
+      "all_linear": {
+        "target_modules": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ],
+        "estimated_trainable_parameters": 16515072,
+        "estimated_total_parameters_with_adapter": 4038983168,
+        "estimated_trainable_percentage": 0.4088918253199316,
+        "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+      }
+    },
+    "datasets": {
+      "original_only": {
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "source_sha256": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9",
+        "rows": 923,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923
+        },
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 4.0,
+        "optimizer_steps_per_epoch": 58,
+        "last_group_examples_per_epoch": 11,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20
+      },
+      "plus_dim2": {
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "source_sha256": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785",
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "2": 923
+        },
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 2.0,
+        "optimizer_steps_per_epoch": 116,
+        "last_group_examples_per_epoch": 6,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20
+      }
+    },
+    "new_training_conditions": [
+      "q_only_original_only",
+      "q_only_plus_dim2",
+      "qv_original_only",
+      "qv_plus_dim2",
+      "attention_all_original_only",
+      "attention_all_plus_dim2",
+      "mlp_only_original_only",
+      "mlp_only_plus_dim2"
+    ],
+    "analysis_conditions": [
+      "q_only_original_only",
+      "q_only_plus_dim2",
+      "qv_original_only",
+      "qv_plus_dim2",
+      "attention_all_original_only",
+      "attention_all_plus_dim2",
+      "mlp_only_original_only",
+      "mlp_only_plus_dim2",
+      "all_linear_original_only",
+      "all_linear_plus_dim2"
+    ],
+    "note": "Placement and adapter capacity co-vary because r=8 is fixed across target-module sets."
+  },
+  "all_linear_reference_checks": {
+    "all_linear_original_only": {
+      "condition": "all_linear_original_only",
+      "reference_condition": "budget_original_only",
+      "adapter_dir_exists": true,
+      "predictions_exist": true,
+      "model_name": "Qwen/Qwen3-4B-Base",
+      "max_steps": 232,
+      "max_length": 1536,
+      "seed": 42,
+      "learning_rate": 0.0002,
+      "lora": {
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "target_modules": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      },
+      "eval_max_new_tokens": 512,
+      "compatible": true
+    },
+    "all_linear_plus_dim2": {
+      "condition": "all_linear_plus_dim2",
+      "reference_condition": "budget_original_plus_dim2",
+      "adapter_dir_exists": true,
+      "predictions_exist": true,
+      "model_name": "Qwen/Qwen3-4B-Base",
+      "max_steps": 232,
+      "max_length": 1536,
+      "seed": 42,
+      "learning_rate": 0.0002,
+      "lora": {
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "target_modules": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      },
+      "eval_max_new_tokens": 512,
+      "compatible": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+model,correct_forms_out_of_five,base_problem_count,percentage
+original_only_large,0,134,0.6767676767676768
+original_only_large,1,24,0.12121212121212122
+original_only_large,2,18,0.09090909090909091
+original_only_large,3,13,0.06565656565656566
+original_only_large,4,6,0.030303030303030304
+original_only_large,5,3,0.015151515151515152
+original_plus_all_full,0,129,0.6515151515151515
+original_plus_all_full,1,30,0.15151515151515152
+original_plus_all_full,2,10,0.050505050505050504
+original_plus_all_full,3,19,0.09595959595959595
+original_plus_all_full,4,6,0.030303030303030304
+original_plus_all_full,5,4,0.020202020202020204

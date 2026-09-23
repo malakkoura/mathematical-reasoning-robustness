@@ -1,0 +1,10 @@
+{
+  "test_set_used": false,
+  "max_new_tokens": 512,
+  "all_linear_references": {
+    "all_linear_original_only": "budget_original_only",
+    "all_linear_plus_dim2": "budget_original_plus_dim2"
+  },
+  "bootstrap_ci_status": "not_implemented; cross-placement gain differences are descriptive unless paired McNemar comparisons are reported for plus-Dim2 predictions.",
+  "interpretation_note": "Placement and adapter capacity co-vary because r=8 is fixed while target-module sets differ."
+}

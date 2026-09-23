@@ -1,0 +1,7 @@
+evaluation_form,label,total,both_models_correct,only_original_only_large_correct,only_original_plus_all_full_correct,both_models_wrong,original_only_large_correct,original_plus_all_full_correct,original_only_large_accuracy,original_plus_all_full_accuracy,accuracy_difference_percentage_points,absolute_accuracy_difference_percentage_points,difference_in_number_correct
+overall,Overall,990,94,44,57,795,138,151,0.1393939393939394,0.15252525252525254,1.3131313131313131,1.3131313131313131,13
+original,Original,198,23,10,13,152,33,36,0.16666666666666666,0.18181818181818182,1.5151515151515165,1.5151515151515165,3
+dim1_paraphrasing,Dim1 paraphrasing,198,26,11,11,150,37,37,0.18686868686868688,0.18686868686868688,0.0,0.0,0
+dim2_word_scrambling,Dim2 word scrambling,198,6,4,7,181,10,13,0.050505050505050504,0.06565656565656566,1.5151515151515158,1.5151515151515158,3
+dim4_irrelevant_information,Dim4 irrelevant information,198,21,9,16,152,30,37,0.15151515151515152,0.18686868686868688,3.535353535353536,3.535353535353536,7
+dim6_numerical_variation,Dim6 numerical variation,198,18,10,10,160,28,28,0.1414141414141414,0.1414141414141414,0.0,0.0,0

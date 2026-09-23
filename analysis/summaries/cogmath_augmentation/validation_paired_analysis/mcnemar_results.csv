@@ -1,0 +1,7 @@
+evaluation_form,label,control_only_correct,augmentation_only_correct,discordant_pairs,exact_two_sided_p_value,holm_adjusted_p_value
+overall,Overall,44,57,101,0.23230046428473858,
+original,Original,10,13,23,0.6776394844055176,1.0
+dim1_paraphrasing,Dim1 paraphrasing,11,11,22,1.0,1.0
+dim2_word_scrambling,Dim2 word scrambling,4,7,11,0.548828125,1.0
+dim4_irrelevant_information,Dim4 irrelevant information,9,16,25,0.2295229434967041,1.0
+dim6_numerical_variation,Dim6 numerical variation,10,10,20,1.0,1.0

@@ -1,0 +1,77 @@
+{
+  "condition": "budget_original_plus_dim2",
+  "overall": {
+    "correct": 662,
+    "total": 990,
+    "accuracy": 0.6686868686868687
+  },
+  "original": {
+    "correct": 164,
+    "total": 198,
+    "accuracy": 0.8282828282828283
+  },
+  "by_dimension": {
+    "original": {
+      "correct": 164,
+      "total": 198,
+      "accuracy": 0.8282828282828283
+    },
+    "dim1_paraphrasing": {
+      "correct": 162,
+      "total": 198,
+      "accuracy": 0.8181818181818182
+    },
+    "dim2_word_scrambling": {
+      "correct": 52,
+      "total": 198,
+      "accuracy": 0.26262626262626265
+    },
+    "dim4_irrelevant_information": {
+      "correct": 147,
+      "total": 198,
+      "accuracy": 0.7424242424242424
+    },
+    "dim6_numerical_variation": {
+      "correct": 137,
+      "total": 198,
+      "accuracy": 0.6919191919191919
+    }
+  },
+  "mean_variant_accuracy": {
+    "dimensions": [
+      "dim1_paraphrasing",
+      "dim2_word_scrambling",
+      "dim4_irrelevant_information",
+      "dim6_numerical_variation"
+    ],
+    "accuracy": 0.6287878787878788,
+    "denominator": 792
+  },
+  "worst_dimension_accuracy": 0.26262626262626265,
+  "robustness_gap": 0.1994949494949495,
+  "matched_consistency_by_base_id": {
+    "all_forms_correct": 36,
+    "complete_case_base_ids": 198,
+    "rate": 0.18181818181818182
+  },
+  "all_forms_correct_rate": 0.18181818181818182,
+  "latency": {
+    "average_latency_seconds": 1.889832208565474,
+    "median_latency_seconds": 1.7251478293765103,
+    "average_generated_tokens": 129.75151515151515,
+    "average_tokens_per_second": 72.52172685072777
+  },
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b_final_thesis_seeds/seed_2026/adapters/budget_original_plus_dim2",
+  "eval_file": "experiments/cogmath_augmentation/validation_eval.jsonl",
+  "prompt_template": "reasoning_utils.REASONING_PROMPT_TEMPLATE",
+  "max_new_tokens": 512,
+  "batch_size": 8,
+  "warmup_generations": 1,
+  "diagnostics": {
+    "cap_hits": 4,
+    "cap_hit_rate": 0.00404040404040404,
+    "missing_final_answer_markers": 4,
+    "missing_final_answer_marker_rate": 0.00404040404040404
+  }
+}

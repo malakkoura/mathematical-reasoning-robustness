@@ -1,0 +1,64 @@
+{
+  "condition": "prompt_bidir_original_only",
+  "overall": {
+    "correct": 557,
+    "total": 990,
+    "accuracy": 0.5626262626262626
+  },
+  "original": {
+    "correct": 139,
+    "total": 198,
+    "accuracy": 0.702020202020202
+  },
+  "by_dimension": {
+    "original": {
+      "correct": 139,
+      "total": 198,
+      "accuracy": 0.702020202020202
+    },
+    "dim1_paraphrasing": {
+      "correct": 143,
+      "total": 198,
+      "accuracy": 0.7222222222222222
+    },
+    "dim2_word_scrambling": {
+      "correct": 23,
+      "total": 198,
+      "accuracy": 0.11616161616161616
+    },
+    "dim4_irrelevant_information": {
+      "correct": 126,
+      "total": 198,
+      "accuracy": 0.6363636363636364
+    },
+    "dim6_numerical_variation": {
+      "correct": 126,
+      "total": 198,
+      "accuracy": 0.6363636363636364
+    }
+  },
+  "mean_variant_accuracy": {
+    "dimensions": [
+      "dim1_paraphrasing",
+      "dim2_word_scrambling",
+      "dim4_irrelevant_information",
+      "dim6_numerical_variation"
+    ],
+    "accuracy": 0.5277777777777778,
+    "denominator": 792
+  },
+  "worst_dimension_accuracy": 0.11616161616161616,
+  "robustness_gap": 0.1742424242424242,
+  "matched_consistency_by_base_id": {
+    "all_forms_correct": 14,
+    "complete_case_base_ids": 198,
+    "rate": 0.0707070707070707
+  },
+  "all_forms_correct_rate": 0.0707070707070707,
+  "latency": {
+    "average_latency_seconds": 9.804201396233449,
+    "median_latency_seconds": 8.500304921879433,
+    "average_generated_tokens": 136.8060606060606,
+    "average_tokens_per_second": 13.95144985992176
+  }
+}

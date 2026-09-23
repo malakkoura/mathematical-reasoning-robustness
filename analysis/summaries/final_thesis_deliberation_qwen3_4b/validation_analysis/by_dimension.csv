@@ -1,0 +1,16 @@
+condition,dimension,rows,correct,accuracy
+first_pass_no_revision,0,198,163,0.8232323232323232
+first_pass_no_revision,1,198,160,0.8080808080808081
+first_pass_no_revision,2,198,45,0.22727272727272727
+first_pass_no_revision,4,198,144,0.7272727272727273
+first_pass_no_revision,6,198,136,0.6868686868686869
+causal_revision,0,198,108,0.5454545454545454
+causal_revision,1,198,101,0.51010101010101
+causal_revision,2,198,35,0.17676767676767677
+causal_revision,4,198,98,0.494949494949495
+causal_revision,6,198,89,0.4494949494949495
+bidir_trace_revision,0,198,0,0.0
+bidir_trace_revision,1,198,0,0.0
+bidir_trace_revision,2,198,0,0.0
+bidir_trace_revision,4,198,0,0.0
+bidir_trace_revision,6,198,1,0.005050505050505051

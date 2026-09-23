@@ -1,0 +1,247 @@
+{
+  "experiment": "cogmath_augmentation_qwen3_4b_unique_full",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "source_path": "data/CogMath/GSM8K.json",
+  "split_source": "experiments/cogmath_augmentation/splits.json",
+  "train_base_ids_assigned": 923,
+  "validation_base_ids": 198,
+  "test_base_ids": 198,
+  "data_rule": "all valid unique records for each condition; no repeats, oversampling, subsampling or artificial replicas",
+  "condition_stats": {
+    "original_only": {
+      "rows": 923,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 0,
+        "dim2": 0,
+        "dim4": 0,
+        "dim6": 0
+      },
+      "counts_by_variant_type": {
+        "original": 923
+      }
+    },
+    "original_plus_dim1": {
+      "rows": 1846,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 923,
+        "dim2": 0,
+        "dim4": 0,
+        "dim6": 0
+      },
+      "counts_by_variant_type": {
+        "original": 923,
+        "paraphrasing": 923
+      }
+    },
+    "original_plus_dim2": {
+      "rows": 1846,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 0,
+        "dim2": 923,
+        "dim4": 0,
+        "dim6": 0
+      },
+      "counts_by_variant_type": {
+        "original": 923,
+        "word_scrambling": 923
+      }
+    },
+    "original_plus_dim4": {
+      "rows": 1846,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 0,
+        "dim2": 0,
+        "dim4": 923,
+        "dim6": 0
+      },
+      "counts_by_variant_type": {
+        "irrelevant_information": 923,
+        "original": 923
+      }
+    },
+    "original_plus_dim6": {
+      "rows": 1843,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 0,
+        "dim2": 0,
+        "dim4": 0,
+        "dim6": 920
+      },
+      "counts_by_variant_type": {
+        "numerical_variation": 920,
+        "original": 923
+      }
+    },
+    "original_plus_dim2_dim4": {
+      "rows": 2769,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 0,
+        "dim2": 923,
+        "dim4": 923,
+        "dim6": 0
+      },
+      "counts_by_variant_type": {
+        "irrelevant_information": 923,
+        "original": 923,
+        "word_scrambling": 923
+      }
+    },
+    "original_plus_all": {
+      "rows": 4612,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "dim0": 923,
+        "dim1": 923,
+        "dim2": 923,
+        "dim4": 923,
+        "dim6": 920
+      },
+      "counts_by_variant_type": {
+        "irrelevant_information": 923,
+        "numerical_variation": 920,
+        "original": 923,
+        "paraphrasing": 923,
+        "word_scrambling": 923
+      }
+    }
+  },
+  "output_files": {
+    "train_original_only.jsonl": {
+      "rows": 923,
+      "sha256": "19a9bb771af73b7ff443dcae950d8325806d4a6a2eaf6f43100544325a376e98"
+    },
+    "train_original_plus_dim1.jsonl": {
+      "rows": 1846,
+      "sha256": "a0f6f7b6dceb23f490daced9d6c436a6325d1b95d4d67a68416a94754c05b9cc"
+    },
+    "train_original_plus_dim2.jsonl": {
+      "rows": 1846,
+      "sha256": "6458135dc445f6d2ac1d109352f90f0c155e5eea16c2d9a0330813ff0118cb4d"
+    },
+    "train_original_plus_dim4.jsonl": {
+      "rows": 1846,
+      "sha256": "97966d15d9eae4d6d419170ba0363ab45f587a7ecb330bd9bc640124204ebe11"
+    },
+    "train_original_plus_dim6.jsonl": {
+      "rows": 1843,
+      "sha256": "107e47869fd9404f11387ae908e647a637a30fbe22ef074f19285bff41d1b866"
+    },
+    "train_original_plus_dim2_dim4.jsonl": {
+      "rows": 2769,
+      "sha256": "0bb866dfde92c7373b099d2f6a5f840c56a3abc2ac5a522cfac5f9a210de6c18"
+    },
+    "train_original_plus_all.jsonl": {
+      "rows": 4612,
+      "sha256": "a8f130edb0367a95785776186b519bab4e3bf9bdce8502a31fbb985b89e71781"
+    }
+  },
+  "invalid_or_unavailable_by_condition": {
+    "original_only": {},
+    "original_plus_dim1": {},
+    "original_plus_dim2": {},
+    "original_plus_dim4": {},
+    "original_plus_dim6": {
+      "dim6": {
+        "missing_dimension_object": {
+          "count": 3,
+          "examples": [
+            {
+              "reason": "missing_dimension_object",
+              "base_id": "GSM8K@367",
+              "dimension": 6,
+              "field": "Dimension 6"
+            },
+            {
+              "reason": "missing_dimension_object",
+              "base_id": "GSM8K@423",
+              "dimension": 6,
+              "field": "Dimension 6"
+            },
+            {
+              "reason": "missing_dimension_object",
+              "base_id": "GSM8K@1047",
+              "dimension": 6,
+              "field": "Dimension 6"
+            }
+          ]
+        }
+      }
+    },
+    "original_plus_dim2_dim4": {},
+    "original_plus_all": {
+      "dim6": {
+        "missing_dimension_object": {
+          "count": 3,
+          "examples": [
+            {
+              "reason": "missing_dimension_object",
+              "base_id": "GSM8K@367",
+              "dimension": 6,
+              "field": "Dimension 6"
+            },
+            {
+              "reason": "missing_dimension_object",
+              "base_id": "GSM8K@423",
+              "dimension": 6,
+              "field": "Dimension 6"
+            },
+            {
+              "reason": "missing_dimension_object",
+              "base_id": "GSM8K@1047",
+              "dimension": 6,
+              "field": "Dimension 6"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "invalid_or_unavailable_overall": {
+    "dim6": {
+      "missing_dimension_object": {
+        "count": 3,
+        "examples": [
+          {
+            "reason": "missing_dimension_object",
+            "base_id": "GSM8K@367",
+            "dimension": 6,
+            "field": "Dimension 6"
+          },
+          {
+            "reason": "missing_dimension_object",
+            "base_id": "GSM8K@423",
+            "dimension": 6,
+            "field": "Dimension 6"
+          },
+          {
+            "reason": "missing_dimension_object",
+            "base_id": "GSM8K@1047",
+            "dimension": 6,
+            "field": "Dimension 6"
+          }
+        ]
+      }
+    }
+  },
+  "array_conditions": [
+    "original_only",
+    "original_plus_dim1",
+    "original_plus_dim2",
+    "original_plus_dim4",
+    "original_plus_dim6",
+    "original_plus_dim2_dim4",
+    "original_plus_all"
+  ]
+}

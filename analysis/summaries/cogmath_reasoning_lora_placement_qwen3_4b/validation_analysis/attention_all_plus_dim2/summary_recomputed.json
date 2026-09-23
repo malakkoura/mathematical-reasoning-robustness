@@ -1,0 +1,64 @@
+{
+  "condition": "attention_all_plus_dim2",
+  "overall": {
+    "correct": 679,
+    "total": 990,
+    "accuracy": 0.6858585858585858
+  },
+  "original": {
+    "correct": 161,
+    "total": 198,
+    "accuracy": 0.8131313131313131
+  },
+  "by_dimension": {
+    "original": {
+      "correct": 161,
+      "total": 198,
+      "accuracy": 0.8131313131313131
+    },
+    "dim1_paraphrasing": {
+      "correct": 168,
+      "total": 198,
+      "accuracy": 0.8484848484848485
+    },
+    "dim2_word_scrambling": {
+      "correct": 48,
+      "total": 198,
+      "accuracy": 0.24242424242424243
+    },
+    "dim4_irrelevant_information": {
+      "correct": 150,
+      "total": 198,
+      "accuracy": 0.7575757575757576
+    },
+    "dim6_numerical_variation": {
+      "correct": 152,
+      "total": 198,
+      "accuracy": 0.7676767676767676
+    }
+  },
+  "mean_variant_accuracy": {
+    "dimensions": [
+      "dim1_paraphrasing",
+      "dim2_word_scrambling",
+      "dim4_irrelevant_information",
+      "dim6_numerical_variation"
+    ],
+    "accuracy": 0.654040404040404,
+    "denominator": 792
+  },
+  "worst_dimension_accuracy": 0.24242424242424243,
+  "robustness_gap": 0.15909090909090917,
+  "matched_consistency_by_base_id": {
+    "all_forms_correct": 38,
+    "complete_case_base_ids": 198,
+    "rate": 0.1919191919191919
+  },
+  "all_forms_correct_rate": 0.1919191919191919,
+  "latency": {
+    "average_latency_seconds": 1.466436374525662,
+    "median_latency_seconds": 1.3074060756189283,
+    "average_generated_tokens": 134.17373737373737,
+    "average_tokens_per_second": 98.70711862497465
+  }
+}

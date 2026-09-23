@@ -1,0 +1,68 @@
+{
+  "original_only": {
+    "name": "original_only",
+    "training_file": "train_original_only.jsonl",
+    "included_dimensions": [
+      0
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  },
+  "original_plus_dim1": {
+    "name": "original_plus_dim1",
+    "training_file": "train_original_plus_dim1.jsonl",
+    "included_dimensions": [
+      0,
+      1
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  },
+  "original_plus_dim2": {
+    "name": "original_plus_dim2",
+    "training_file": "train_original_plus_dim2.jsonl",
+    "included_dimensions": [
+      0,
+      2
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  },
+  "original_plus_dim4": {
+    "name": "original_plus_dim4",
+    "training_file": "train_original_plus_dim4.jsonl",
+    "included_dimensions": [
+      0,
+      4
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  },
+  "original_plus_dim6": {
+    "name": "original_plus_dim6",
+    "training_file": "train_original_plus_dim6.jsonl",
+    "included_dimensions": [
+      0,
+      6
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  },
+  "original_plus_dim2_dim4": {
+    "name": "original_plus_dim2_dim4",
+    "training_file": "train_original_plus_dim2_dim4.jsonl",
+    "included_dimensions": [
+      0,
+      2,
+      4
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  },
+  "original_plus_all": {
+    "name": "original_plus_all",
+    "training_file": "train_original_plus_all.jsonl",
+    "included_dimensions": [
+      0,
+      1,
+      2,
+      4,
+      6
+    ],
+    "description": "Unique-full Qwen3-4B augmentation condition with every valid source record for the listed dimensions."
+  }
+}

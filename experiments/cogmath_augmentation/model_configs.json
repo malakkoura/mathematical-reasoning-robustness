@@ -1,0 +1,21 @@
+{
+  "qwen3_1_7b": {
+    "model_name": "Qwen/Qwen3-1.7B-Base",
+    "status": "existing configuration",
+    "output_root": "outputs/cogmath_augmentation",
+    "notes": "Preserved for the completed/current 1.7B augmentation experiment."
+  },
+  "qwen3_4b": {
+    "model_name": "Qwen/Qwen3-4B-Base",
+    "status": "new additive configuration",
+    "output_root": "outputs/cogmath_augmentation_qwen3_4b",
+    "notes": "Uses the same prepared augmentation datasets and conditions as the 1.7B run, with separate adapters, evaluations, analyses, plots and logs."
+  },
+  "qwen3_4b_unique_full": {
+    "model_name": "Qwen/Qwen3-4B-Base",
+    "status": "new unique-full future-analysis configuration",
+    "data_dir": "experiments/cogmath_augmentation/data_unique_full",
+    "output_root": "outputs/cogmath_augmentation_qwen3_4b_unique_full",
+    "notes": "Uses every valid unique training example available for each condition. Do not mix these outputs with the previous balanced, oversampled, large, or full-exposure designs."
+  }
+}

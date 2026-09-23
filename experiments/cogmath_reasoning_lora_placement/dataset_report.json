@@ -1,0 +1,129 @@
+{
+  "experiment": "cogmath_reasoning_lora_placement_qwen3_4b",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "output_root": "outputs/cogmath_reasoning_lora_placement_qwen3_4b",
+  "budget_reference_output_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+  "max_steps": 232,
+  "training_max_length": 1536,
+  "validation_max_new_tokens": 512,
+  "seed": 42,
+  "learning_rate": 0.0002,
+  "lora_rank": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "placements": {
+    "q_only": {
+      "target_modules": [
+        "q_proj"
+      ],
+      "estimated_trainable_parameters": 1916928,
+      "estimated_total_parameters_with_adapter": 4024385024,
+      "estimated_trainable_percentage": 0.04763281814657702,
+      "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+    },
+    "qv": {
+      "target_modules": [
+        "q_proj",
+        "v_proj"
+      ],
+      "estimated_trainable_parameters": 2949120,
+      "estimated_total_parameters_with_adapter": 4025417216,
+      "estimated_trainable_percentage": 0.07326246800649645,
+      "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+    },
+    "attention_all": {
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj"
+      ],
+      "estimated_trainable_parameters": 5898240,
+      "estimated_total_parameters_with_adapter": 4028366336,
+      "estimated_trainable_percentage": 0.14641766681668547,
+      "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+    },
+    "mlp_only": {
+      "target_modules": [
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "estimated_trainable_parameters": 10616832,
+      "estimated_total_parameters_with_adapter": 4033084928,
+      "estimated_trainable_percentage": 0.26324345233327057,
+      "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+    },
+    "all_linear": {
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "estimated_trainable_parameters": 16515072,
+      "estimated_total_parameters_with_adapter": 4038983168,
+      "estimated_trainable_percentage": 0.4088918253199316,
+      "parameter_count_note": "Analytic estimate from Qwen3-4B-Base config and PEFT LoRA A/B matrices at r=8; cluster smoke/training writes exact PEFT parameter_report.json."
+    }
+  },
+  "datasets": {
+    "original_only": {
+      "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+      "source_sha256": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9",
+      "rows": 923,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "0": 923
+      },
+      "estimated_example_presentations": 3692,
+      "effective_epochs": 4.0,
+      "optimizer_steps_per_epoch": 58,
+      "last_group_examples_per_epoch": 11,
+      "nominal_full_accumulation_examples": 3712,
+      "shortfall_vs_nominal_full_accumulation": 20
+    },
+    "plus_dim2": {
+      "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+      "source_sha256": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785",
+      "rows": 1846,
+      "unique_base_ids": 923,
+      "counts_by_dimension": {
+        "0": 923,
+        "2": 923
+      },
+      "estimated_example_presentations": 3692,
+      "effective_epochs": 2.0,
+      "optimizer_steps_per_epoch": 116,
+      "last_group_examples_per_epoch": 6,
+      "nominal_full_accumulation_examples": 3712,
+      "shortfall_vs_nominal_full_accumulation": 20
+    }
+  },
+  "new_training_conditions": [
+    "q_only_original_only",
+    "q_only_plus_dim2",
+    "qv_original_only",
+    "qv_plus_dim2",
+    "attention_all_original_only",
+    "attention_all_plus_dim2",
+    "mlp_only_original_only",
+    "mlp_only_plus_dim2"
+  ],
+  "analysis_conditions": [
+    "q_only_original_only",
+    "q_only_plus_dim2",
+    "qv_original_only",
+    "qv_plus_dim2",
+    "attention_all_original_only",
+    "attention_all_plus_dim2",
+    "mlp_only_original_only",
+    "mlp_only_plus_dim2",
+    "all_linear_original_only",
+    "all_linear_plus_dim2"
+  ],
+  "note": "Placement and adapter capacity co-vary because r=8 is fixed across target-module sets."
+}

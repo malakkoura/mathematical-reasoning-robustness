@@ -1,0 +1,1030 @@
+{
+  "passed": true,
+  "failures": [],
+  "checks": [
+    {
+      "name": "source mapping exact",
+      "passed": true,
+      "details": {
+        "original_only": "reasoning_original_only",
+        "original_plus_dim2": "reasoning_original_plus_dim2",
+        "original_plus_all": "reasoning_original_plus_all"
+      }
+    },
+    {
+      "name": "condition grid exact",
+      "passed": true,
+      "details": [
+        "causal_original_only",
+        "causal_original_plus_dim2",
+        "causal_original_plus_all",
+        "prompt_bidir_original_only",
+        "prompt_bidir_original_plus_dim2",
+        "prompt_bidir_original_plus_all"
+      ]
+    },
+    {
+      "name": "dimension counts exact",
+      "passed": true,
+      "details": {
+        "original_only": {
+          "0": 923,
+          "1": 0,
+          "2": 0,
+          "4": 0,
+          "6": 0
+        },
+        "original_plus_dim2": {
+          "0": 923,
+          "1": 0,
+          "2": 923,
+          "4": 0,
+          "6": 0
+        },
+        "original_plus_all": {
+          "0": 923,
+          "1": 923,
+          "2": 923,
+          "4": 923,
+          "6": 917
+        }
+      }
+    },
+    {
+      "name": "source hashes unchanged",
+      "passed": true,
+      "details": {
+        "original_only": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9",
+        "original_plus_dim2": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785",
+        "original_plus_all": "a6b2e31a29a0774fb64a4bc0fed3dea5c77130bb71d4f7e8ccfb7b199b803354"
+      }
+    },
+    {
+      "name": "no duplicate record IDs",
+      "passed": true,
+      "details": {
+        "original_only": [],
+        "original_plus_dim2": [],
+        "original_plus_all": []
+      }
+    },
+    {
+      "name": "no validation leakage",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no split-test leakage",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "validation record count is 990",
+      "passed": true,
+      "details": "experiments/cogmath_augmentation/validation_eval.jsonl"
+    },
+    {
+      "name": "example exposure estimates use incomplete accumulation groups",
+      "passed": true,
+      "details": {
+        "original_only": 3692,
+        "original_plus_dim2": 3692,
+        "original_plus_all": 3712
+      }
+    },
+    {
+      "name": "resolved config fixed",
+      "passed": true,
+      "details": {
+        "experiment": "cogmath_reasoning_attention_control_qwen3_4b",
+        "model_name": "Qwen/Qwen3-4B-Base",
+        "output_root": "outputs/cogmath_reasoning_attention_control_qwen3_4b",
+        "conditions": [
+          "causal_original_only",
+          "causal_original_plus_dim2",
+          "causal_original_plus_all",
+          "prompt_bidir_original_only",
+          "prompt_bidir_original_plus_dim2",
+          "prompt_bidir_original_plus_all"
+        ],
+        "training_conditions_requiring_new_training": [
+          "prompt_bidir_original_only",
+          "prompt_bidir_original_plus_dim2",
+          "prompt_bidir_original_plus_all"
+        ],
+        "training_datasets": [
+          "original_only",
+          "original_plus_dim2",
+          "original_plus_all"
+        ],
+        "attention_types": [
+          "causal",
+          "prompt_bidirectional"
+        ],
+        "stopping_criterion": "max_steps",
+        "max_steps": 232,
+        "training_max_length": 1536,
+        "validation_max_new_tokens": 512,
+        "seed": 42,
+        "learning_rate": 0.0002,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "warmup_steps": 20,
+        "logging_steps": 5,
+        "bf16": true,
+        "gradient_checkpointing": true,
+        "use_cache": false,
+        "lora": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ]
+        },
+        "prompt_bidirectional_mask": {
+          "model_visible_boundary_marker": false,
+          "boundary_source": "token-level prompt_length",
+          "prompt_tokens": "bidirectional among prompt/input tokens only",
+          "answer_tokens": "causal over generated answer tokens while attending to the full prompt",
+          "kv_cache_training": false,
+          "kv_cache_generation": false
+        },
+        "training_gate": {
+          "causal_path": "native Transformers Trainer and native Qwen causal attention, matching budget-control training",
+          "prompt_bidirectional_path": "custom compute_loss only for additive 4D prompt-bidirectional mask under eager attention",
+          "full_training_requires": [
+            "causal budget-reference compatibility",
+            "runtime causal-equivalence diagnostic",
+            "abstract mask tests",
+            "model-level future-target leakage diagnostic",
+            "prompt-bidirectional eager backend confirmation"
+          ]
+        }
+      }
+    },
+    {
+      "name": "LoRA config fixed",
+      "passed": true,
+      "details": {
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "target_modules": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      }
+    },
+    {
+      "name": "optimizer config fixed",
+      "passed": true,
+      "details": {
+        "experiment": "cogmath_reasoning_attention_control_qwen3_4b",
+        "model_name": "Qwen/Qwen3-4B-Base",
+        "output_root": "outputs/cogmath_reasoning_attention_control_qwen3_4b",
+        "conditions": [
+          "causal_original_only",
+          "causal_original_plus_dim2",
+          "causal_original_plus_all",
+          "prompt_bidir_original_only",
+          "prompt_bidir_original_plus_dim2",
+          "prompt_bidir_original_plus_all"
+        ],
+        "training_conditions_requiring_new_training": [
+          "prompt_bidir_original_only",
+          "prompt_bidir_original_plus_dim2",
+          "prompt_bidir_original_plus_all"
+        ],
+        "training_datasets": [
+          "original_only",
+          "original_plus_dim2",
+          "original_plus_all"
+        ],
+        "attention_types": [
+          "causal",
+          "prompt_bidirectional"
+        ],
+        "stopping_criterion": "max_steps",
+        "max_steps": 232,
+        "training_max_length": 1536,
+        "validation_max_new_tokens": 512,
+        "seed": 42,
+        "learning_rate": 0.0002,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "warmup_steps": 20,
+        "logging_steps": 5,
+        "bf16": true,
+        "gradient_checkpointing": true,
+        "use_cache": false,
+        "lora": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ]
+        },
+        "prompt_bidirectional_mask": {
+          "model_visible_boundary_marker": false,
+          "boundary_source": "token-level prompt_length",
+          "prompt_tokens": "bidirectional among prompt/input tokens only",
+          "answer_tokens": "causal over generated answer tokens while attending to the full prompt",
+          "kv_cache_training": false,
+          "kv_cache_generation": false
+        },
+        "training_gate": {
+          "causal_path": "native Transformers Trainer and native Qwen causal attention, matching budget-control training",
+          "prompt_bidirectional_path": "custom compute_loss only for additive 4D prompt-bidirectional mask under eager attention",
+          "full_training_requires": [
+            "causal budget-reference compatibility",
+            "runtime causal-equivalence diagnostic",
+            "abstract mask tests",
+            "model-level future-target leakage diagnostic",
+            "prompt-bidirectional eager backend confirmation"
+          ]
+        }
+      }
+    },
+    {
+      "name": "deterministic mask tests pass",
+      "passed": true,
+      "details": {
+        "stdout": "",
+        "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+      }
+    },
+    {
+      "name": "training array trains only prompt-bidirectional models",
+      "passed": true,
+      "details": [
+        "prompt_bidir_original_only",
+        "prompt_bidir_original_plus_dim2",
+        "prompt_bidir_original_plus_all"
+      ]
+    },
+    {
+      "name": "validation array evaluates only prompt-bidirectional models",
+      "passed": true,
+      "details": [
+        "prompt_bidir_original_only",
+        "prompt_bidir_original_plus_dim2",
+        "prompt_bidir_original_plus_all"
+      ]
+    },
+    {
+      "name": "smoke covers causal and prompt-bidirectional",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_smoke\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=08:00:00\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%j.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%j.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nOUTPUT_ROOT=outputs/cogmath_reasoning_attention_control_qwen3_4b\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\nmkdir -p \"${OUTPUT_ROOT}/smoke\"\n\npython -u experiments/cogmath_reasoning_attention_control/prepare_attention_control.py\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py\npython -u experiments/cogmath_reasoning_attention_control/test_attention_masks.py\npython -u experiments/cogmath_reasoning_attention_control/runtime_attention_diagnostics.py \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_path experiments/cogmath_reasoning_attention_control/runtime_diagnostics_report.json \\\n  --cache_dir $HF_HOME \\\n  --max_length 1536 \\\n  --batch_size 1 \\\n  --cached_decode_steps 5\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition causal_original_only \\\n  --attention_type causal \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/smoke/causal_original_only_native_fix\" \\\n  --seed 42 \\\n  --max_steps 2 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --smoke_samples 16 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition prompt_bidir_original_only \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/smoke/prompt_bidir_original_only_native_fix\" \\\n  --seed 42 \\\n  --max_steps 2 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --smoke_samples 16 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition prompt_bidir_original_only \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/smoke/prompt_bidir_original_only_longer_diagnostic\" \\\n  --seed 42 \\\n  --max_steps 8 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --smoke_samples 16 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n"
+    },
+    {
+      "name": "scripts use max_steps 232 and max_length 1536",
+      "passed": true,
+      "details": {
+        "train": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_train\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=48:00:00\n#SBATCH --array=0-2\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%A_%a.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%A_%a.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nCONDITIONS=(\n  prompt_bidir_original_only\n  prompt_bidir_original_plus_dim2\n  prompt_bidir_original_plus_all\n)\n\nSOURCE_FILES=(\n  experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl\n  experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl\n  experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl\n)\n\nCONDITION=\"${CONDITIONS[$SLURM_ARRAY_TASK_ID]}\"\nTRAIN_FILE=\"${SOURCE_FILES[$SLURM_ARRAY_TASK_ID]}\"\nOUTPUT_ROOT=outputs/cogmath_reasoning_attention_control_qwen3_4b\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\nmkdir -p \"${OUTPUT_ROOT}/adapters\"\n\npython -u experiments/cogmath_reasoning_attention_control/prepare_attention_control.py\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition \"${CONDITION}\" \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file \"${TRAIN_FILE}\" \\\n  --output_dir \"${OUTPUT_ROOT}/adapters/${CONDITION}\" \\\n  --seed 42 \\\n  --max_steps 232 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n",
+        "smoke": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_smoke\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=08:00:00\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%j.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%j.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nOUTPUT_ROOT=outputs/cogmath_reasoning_attention_control_qwen3_4b\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\nmkdir -p \"${OUTPUT_ROOT}/smoke\"\n\npython -u experiments/cogmath_reasoning_attention_control/prepare_attention_control.py\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py\npython -u experiments/cogmath_reasoning_attention_control/test_attention_masks.py\npython -u experiments/cogmath_reasoning_attention_control/runtime_attention_diagnostics.py \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_path experiments/cogmath_reasoning_attention_control/runtime_diagnostics_report.json \\\n  --cache_dir $HF_HOME \\\n  --max_length 1536 \\\n  --batch_size 1 \\\n  --cached_decode_steps 5\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition causal_original_only \\\n  --attention_type causal \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/smoke/causal_original_only_native_fix\" \\\n  --seed 42 \\\n  --max_steps 2 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --smoke_samples 16 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition prompt_bidir_original_only \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/smoke/prompt_bidir_original_only_native_fix\" \\\n  --seed 42 \\\n  --max_steps 2 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --smoke_samples 16 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition prompt_bidir_original_only \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/smoke/prompt_bidir_original_only_longer_diagnostic\" \\\n  --seed 42 \\\n  --max_steps 8 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --smoke_samples 16 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n"
+      }
+    },
+    {
+      "name": "full training requires runtime diagnostics gate",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_train\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=48:00:00\n#SBATCH --array=0-2\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%A_%a.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%A_%a.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nCONDITIONS=(\n  prompt_bidir_original_only\n  prompt_bidir_original_plus_dim2\n  prompt_bidir_original_plus_all\n)\n\nSOURCE_FILES=(\n  experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl\n  experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl\n  experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl\n)\n\nCONDITION=\"${CONDITIONS[$SLURM_ARRAY_TASK_ID]}\"\nTRAIN_FILE=\"${SOURCE_FILES[$SLURM_ARRAY_TASK_ID]}\"\nOUTPUT_ROOT=outputs/cogmath_reasoning_attention_control_qwen3_4b\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\nmkdir -p \"${OUTPUT_ROOT}/adapters\"\n\npython -u experiments/cogmath_reasoning_attention_control/prepare_attention_control.py\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n\npython -u experiments/cogmath_reasoning_attention_control/train_attention_control.py \\\n  --condition \"${CONDITION}\" \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file \"${TRAIN_FILE}\" \\\n  --output_dir \"${OUTPUT_ROOT}/adapters/${CONDITION}\" \\\n  --seed 42 \\\n  --max_steps 232 \\\n  --learning_rate 2e-4 \\\n  --max_length 1536 \\\n  --per_device_train_batch_size 1 \\\n  --gradient_accumulation_steps 16 \\\n  --cache_dir $HF_HOME \\\n  --bf16 \\\n  --gradient_checkpointing\n"
+    },
+    {
+      "name": "runtime diagnostics slurm invokes model-level checks",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_runtime\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=04:00:00\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%j.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%j.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\n\npython -u experiments/cogmath_reasoning_attention_control/prepare_attention_control.py\npython -u experiments/cogmath_reasoning_attention_control/runtime_attention_diagnostics.py \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_path experiments/cogmath_reasoning_attention_control/runtime_diagnostics_report.json \\\n  --cache_dir $HF_HOME \\\n  --max_length 1536 \\\n  --batch_size 1 \\\n  --cached_decode_steps 5\n\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n"
+    },
+    {
+      "name": "runtime diagnostics check native causal and prompt-bidir cache controls",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_infsmoke\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=04:00:00\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%j.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%j.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nOUTPUT_ROOT=outputs/cogmath_reasoning_attention_control_qwen3_4b\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\nmkdir -p \"${OUTPUT_ROOT}/diagnostics\"\n\npython -u experiments/cogmath_reasoning_attention_control/runtime_attention_diagnostics.py \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --train_file experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl \\\n  --output_path experiments/cogmath_reasoning_attention_control/runtime_diagnostics_report.json \\\n  --cache_dir $HF_HOME \\\n  --max_length 1536 \\\n  --batch_size 1 \\\n  --cached_decode_steps 5\n\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n\npython -u experiments/cogmath_reasoning_attention_control/inference_smoke_attention_control.py \\\n  --condition prompt_bidir_original_only \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --adapter_dir \"${OUTPUT_ROOT}/adapters/prompt_bidir_original_only\" \\\n  --eval_file experiments/cogmath_augmentation/validation_eval.jsonl \\\n  --output_path \"${OUTPUT_ROOT}/diagnostics/prompt_bidir_original_only_cached_inference_smoke.json\" \\\n  --cache_dir $HF_HOME \\\n  --examples 2 \\\n  --smoke_new_tokens 96 \\\n  --full_eval_max_new_tokens 512 \\\n  --no-stop_on_eos\n"
+    },
+    {
+      "name": "prompt-bidirectional evaluation uses cached decode",
+      "passed": true,
+      "details": "cached generation path present"
+    },
+    {
+      "name": "causal training uses native Trainer path",
+      "passed": true,
+      "details": "native causal path is selected conditionally"
+    },
+    {
+      "name": "evaluation uses max_new_tokens 512",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_attn_eval\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=24:00:00\n#SBATCH --array=0-2\n#SBATCH --output=experiments/cogmath_reasoning_attention_control/logs/%x_%A_%a.out\n#SBATCH --error=experiments/cogmath_reasoning_attention_control/logs/%x_%A_%a.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nCONDITIONS=(\n  prompt_bidir_original_only\n  prompt_bidir_original_plus_dim2\n  prompt_bidir_original_plus_all\n)\n\nCONDITION=\"${CONDITIONS[$SLURM_ARRAY_TASK_ID]}\"\nOUTPUT_ROOT=outputs/cogmath_reasoning_attention_control_qwen3_4b\n\nmkdir -p experiments/cogmath_reasoning_attention_control/logs\nmkdir -p \"${OUTPUT_ROOT}/validation_evaluations\"\n\npython -u experiments/cogmath_reasoning_attention_control/static_validation.py \\\n  --require-causal-references \\\n  --require-runtime-diagnostics\n\npython -u experiments/cogmath_reasoning_attention_control/evaluate_attention_control.py \\\n  --condition \"${CONDITION}\" \\\n  --attention_type prompt_bidirectional \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --adapter_dir \"${OUTPUT_ROOT}/adapters/${CONDITION}\" \\\n  --eval_file experiments/cogmath_augmentation/validation_eval.jsonl \\\n  --output_dir \"${OUTPUT_ROOT}/validation_evaluations/${CONDITION}\" \\\n  --batch_size 1 \\\n  --max_new_tokens 512 \\\n  --cache_dir $HF_HOME \\\n  --seed 42\n"
+    },
+    {
+      "name": "no held-out evaluation path referenced",
+      "passed": true,
+      "details": "checked by string without opening held-out eval data"
+    },
+    {
+      "name": "separate output root",
+      "passed": true,
+      "details": "outputs/cogmath_reasoning_attention_control_qwen3_4b"
+    },
+    {
+      "name": "causal budget references compatible or explicitly pending",
+      "passed": true,
+      "details": {
+        "passed": true,
+        "failures": [],
+        "details": {
+          "causal_original_only": {
+            "causal_condition": "causal_original_only",
+            "budget_condition": "budget_original_only",
+            "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/adapters/budget_original_only",
+            "evaluation_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/validation_evaluations/budget_original_only",
+            "status": "checked",
+            "checks": {
+              "model_name": true,
+              "max_steps": true,
+              "learning_rate": true,
+              "max_length": true,
+              "seed": true,
+              "batch_and_accumulation": true,
+              "warmup": true,
+              "lora": true,
+              "source_file": true,
+              "training_row_order": true,
+              "validation_max_new_tokens": true,
+              "validation_record_ids": true
+            },
+            "passed": true
+          },
+          "causal_original_plus_dim2": {
+            "causal_condition": "causal_original_plus_dim2",
+            "budget_condition": "budget_original_plus_dim2",
+            "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/adapters/budget_original_plus_dim2",
+            "evaluation_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/validation_evaluations/budget_original_plus_dim2",
+            "status": "checked",
+            "checks": {
+              "model_name": true,
+              "max_steps": true,
+              "learning_rate": true,
+              "max_length": true,
+              "seed": true,
+              "batch_and_accumulation": true,
+              "warmup": true,
+              "lora": true,
+              "source_file": true,
+              "training_row_order": true,
+              "validation_max_new_tokens": true,
+              "validation_record_ids": true
+            },
+            "passed": true
+          },
+          "causal_original_plus_all": {
+            "causal_condition": "causal_original_plus_all",
+            "budget_condition": "budget_original_plus_all",
+            "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/adapters/budget_original_plus_all",
+            "evaluation_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/validation_evaluations/budget_original_plus_all",
+            "status": "checked",
+            "checks": {
+              "model_name": true,
+              "max_steps": true,
+              "learning_rate": true,
+              "max_length": true,
+              "seed": true,
+              "batch_and_accumulation": true,
+              "warmup": true,
+              "lora": true,
+              "source_file": true,
+              "training_row_order": true,
+              "validation_max_new_tokens": true,
+              "validation_record_ids": true
+            },
+            "passed": true
+          }
+        }
+      }
+    },
+    {
+      "name": "cluster runtime diagnostics pass or explicitly pending",
+      "passed": true,
+      "details": {
+        "passed": true,
+        "status": "checked",
+        "report_path": "experiments/cogmath_reasoning_attention_control/runtime_diagnostics_report.json",
+        "checks": {
+          "runtime_report_passed": true,
+          "causal_equivalence_passed": true,
+          "causal_loss_delta_zero_tolerance": true,
+          "causal_logit_delta_zero_tolerance": true,
+          "model_level_future_target_leakage_passed": true,
+          "cache_controls_passed": true,
+          "native_causal_forced_cache_control_passed": true,
+          "native_causal_greedy_calibration_report_present": true,
+          "prompt_bidirectional_cache_control_passed": true,
+          "cached_generation_checked_multiple_steps": true,
+          "prompt_bidirectional_positions_and_cache_lengths_checked": true,
+          "prompt_bidirectional_backend_eager": true,
+          "test_set_not_used": true
+        },
+        "causal_summary": {
+          "native_loss": 0.4964173138141632,
+          "control_loss": 0.4964173138141632,
+          "loss_delta": 0.0,
+          "max_logit_delta": 0.0
+        },
+        "prompt_bidirectional_summary": {
+          "original_loss": 1.2538357973098755,
+          "changed_loss": 1.2538357973098755,
+          "attention_backend": "eager",
+          "visibility_checks": {
+            "prompt_tokens_bidirectional": true,
+            "prompt_tokens_cannot_see_output": true,
+            "output_tokens_see_prompt": true,
+            "output_tokens_see_previous_output": true,
+            "output_tokens_cannot_see_future_output": true,
+            "padding_masked": true,
+            "mask_shape": [
+              1,
+              1,
+              1536,
+              1536
+            ],
+            "mask_min_negative": true,
+            "mask_max_zero": true
+          }
+        },
+        "cached_generation_summary": {
+          "behavioural_acceptance_rule": {
+            "forced_steps": "top-1 decisions must agree for steps 0 through cached_decode_steps",
+            "greedy_steps": "cached greedy token sequence must match full-prefix greedy token sequence for 32 steps",
+            "native_causal_greedy": "reported as calibration-only; independent trajectory divergence is not a hard gate because later logits have different prefixes",
+            "numeric_drift": "prompt-bidirectional max absolute logit drift must be no more than about 2x native causal BF16/eager cache-control drift plus 1e-3",
+            "reason": "BF16 eager cached decoding can differ numerically from full-prefix recomputation even when decisions are unchanged; native causal control calibrates this drift.",
+            "prompt_bidir_numeric_threshold_used": 1.001
+          },
+          "native_causal_forced": {
+            "steps_checked": 5,
+            "max_abs_logit_difference_over_steps": 0.5,
+            "mean_abs_logit_difference_over_steps": 0.049365234375,
+            "all_top1_agree": true
+          },
+          "prompt_bidirectional_forced": {
+            "steps_checked": 5,
+            "max_abs_logit_difference_over_steps": 0.8125,
+            "mean_abs_logit_difference_over_steps": 0.11962890625,
+            "all_top1_agree": true,
+            "step_reports": [
+              {
+                "step": 0,
+                "prefix_length": 157,
+                "generated_length": 0,
+                "expected_next_token_position": 157,
+                "cache_length_before_decode": 157,
+                "cache_length_matches_prefix": true,
+                "max_abs_logit_difference": 0.0,
+                "mean_abs_logit_difference": 0.0,
+                "reference_top1_token": 19357,
+                "cached_top1_token": 19357,
+                "top1_agrees": true,
+                "reference_top5_tokens": [
+                  19357,
+                  27,
+                  366,
+                  785,
+                  9454
+                ],
+                "cached_top5_tokens": [
+                  19357,
+                  27,
+                  366,
+                  785,
+                  9454
+                ],
+                "top5_exact_agrees": true,
+                "reference_top1_in_cached_top5": true,
+                "cached_top1_in_reference_top5": true,
+                "fed_token_position": 157,
+                "position_ids": [
+                  [
+                    157
+                  ]
+                ],
+                "cache_position": [
+                  157
+                ],
+                "decode_mask_shape": [
+                  1,
+                  1,
+                  1,
+                  158
+                ],
+                "decode_mask_shape_expected": [
+                  1,
+                  1,
+                  1,
+                  158
+                ],
+                "decode_mask_shape_matches_expected": true,
+                "cache_length_after_decode": 158,
+                "cache_length_after_decode_expected": 158,
+                "cache_length_after_decode_matches_expected": true
+              },
+              {
+                "step": 1,
+                "prefix_length": 158,
+                "generated_length": 1,
+                "expected_next_token_position": 158,
+                "cache_length_before_decode": 158,
+                "cache_length_matches_prefix": true,
+                "max_abs_logit_difference": 0.5,
+                "mean_abs_logit_difference": 0.07861328125,
+                "reference_top1_token": 510,
+                "cached_top1_token": 510,
+                "top1_agrees": true,
+                "reference_top5_tokens": [
+                  510,
+                  25,
+                  198,
+                  366,
+                  1447
+                ],
+                "cached_top5_tokens": [
+                  510,
+                  25,
+                  366,
+                  198,
+                  1447
+                ],
+                "top5_exact_agrees": true,
+                "reference_top1_in_cached_top5": true,
+                "cached_top1_in_reference_top5": true,
+                "fed_token_position": 158,
+                "position_ids": [
+                  [
+                    158
+                  ]
+                ],
+                "cache_position": [
+                  158
+                ],
+                "decode_mask_shape": [
+                  1,
+                  1,
+                  1,
+                  159
+                ],
+                "decode_mask_shape_expected": [
+                  1,
+                  1,
+                  1,
+                  159
+                ],
+                "decode_mask_shape_matches_expected": true,
+                "cache_length_after_decode": 159,
+                "cache_length_after_decode_expected": 159,
+                "cache_length_after_decode_matches_expected": true
+              },
+              {
+                "step": 2,
+                "prefix_length": 159,
+                "generated_length": 2,
+                "expected_next_token_position": 159,
+                "cache_length_before_decode": 159,
+                "cache_length_matches_prefix": true,
+                "max_abs_logit_difference": 0.5,
+                "mean_abs_logit_difference": 0.0966796875,
+                "reference_top1_token": 510,
+                "cached_top1_token": 510,
+                "top1_agrees": true,
+                "reference_top5_tokens": [
+                  510,
+                  11017,
+                  323,
+                  198,
+                  25
+                ],
+                "cached_top5_tokens": [
+                  510,
+                  11017,
+                  323,
+                  198,
+                  25
+                ],
+                "top5_exact_agrees": true,
+                "reference_top1_in_cached_top5": true,
+                "cached_top1_in_reference_top5": true,
+                "fed_token_position": 159,
+                "position_ids": [
+                  [
+                    159
+                  ]
+                ],
+                "cache_position": [
+                  159
+                ],
+                "decode_mask_shape": [
+                  1,
+                  1,
+                  1,
+                  160
+                ],
+                "decode_mask_shape_expected": [
+                  1,
+                  1,
+                  1,
+                  160
+                ],
+                "decode_mask_shape_matches_expected": true,
+                "cache_length_after_decode": 160,
+                "cache_length_after_decode_expected": 160,
+                "cache_length_after_decode_matches_expected": true
+              },
+              {
+                "step": 3,
+                "prefix_length": 160,
+                "generated_length": 3,
+                "expected_next_token_position": 160,
+                "cache_length_before_decode": 160,
+                "cache_length_matches_prefix": true,
+                "max_abs_logit_difference": 0.765625,
+                "mean_abs_logit_difference": 0.1162109375,
+                "reference_top1_token": 19357,
+                "cached_top1_token": 19357,
+                "top1_agrees": true,
+                "reference_top5_tokens": [
+                  19357,
+                  785,
+                  14582,
+                  8304,
+                  510
+                ],
+                "cached_top5_tokens": [
+                  19357,
+                  785,
+                  14582,
+                  8304,
+                  510
+                ],
+                "top5_exact_agrees": true,
+                "reference_top1_in_cached_top5": true,
+                "cached_top1_in_reference_top5": true,
+                "fed_token_position": 160,
+                "position_ids": [
+                  [
+                    160
+                  ]
+                ],
+                "cache_position": [
+                  160
+                ],
+                "decode_mask_shape": [
+                  1,
+                  1,
+                  1,
+                  161
+                ],
+                "decode_mask_shape_expected": [
+                  1,
+                  1,
+                  1,
+                  161
+                ],
+                "decode_mask_shape_matches_expected": true,
+                "cache_length_after_decode": 161,
+                "cache_length_after_decode_expected": 161,
+                "cache_length_after_decode_matches_expected": true
+              },
+              {
+                "step": 4,
+                "prefix_length": 161,
+                "generated_length": 4,
+                "expected_next_token_position": 161,
+                "cache_length_before_decode": 161,
+                "cache_length_matches_prefix": true,
+                "max_abs_logit_difference": 0.8125,
+                "mean_abs_logit_difference": 0.306640625,
+                "reference_top1_token": 279,
+                "cached_top1_token": 279,
+                "top1_agrees": true,
+                "reference_top5_tokens": [
+                  279,
+                  42491,
+                  198,
+                  419,
+                  264
+                ],
+                "cached_top5_tokens": [
+                  279,
+                  42491,
+                  198,
+                  419,
+                  264
+                ],
+                "top5_exact_agrees": true,
+                "reference_top1_in_cached_top5": true,
+                "cached_top1_in_reference_top5": true,
+                "fed_token_position": 161,
+                "position_ids": [
+                  [
+                    161
+                  ]
+                ],
+                "cache_position": [
+                  161
+                ],
+                "decode_mask_shape": [
+                  1,
+                  1,
+                  1,
+                  162
+                ],
+                "decode_mask_shape_expected": [
+                  1,
+                  1,
+                  1,
+                  162
+                ],
+                "decode_mask_shape_matches_expected": true,
+                "cache_length_after_decode": 162,
+                "cache_length_after_decode_expected": 162,
+                "cache_length_after_decode_matches_expected": true
+              }
+            ]
+          },
+          "greedy": {
+            "native_causal_all_greedy_tokens_agree": false,
+            "native_causal_diagnostic_role": "calibration_only_native_causal_independent_greedy",
+            "native_causal_first_divergence": {
+              "step": 13,
+              "cached_token": 979,
+              "reference_token": 2041,
+              "cached_token_in_reference_top5": true,
+              "reference_token_in_cached_top5": true,
+              "comparison": {
+                "max_abs_logit_difference": 0.25,
+                "mean_abs_logit_difference": 0.0439453125,
+                "reference_top1_token": 2041,
+                "cached_top1_token": 979,
+                "top1_agrees": false,
+                "reference_top5_tokens": [
+                  2041,
+                  979,
+                  448,
+                  1393,
+                  14279
+                ],
+                "cached_top5_tokens": [
+                  979,
+                  2041,
+                  448,
+                  1393,
+                  14279
+                ],
+                "top5_exact_agrees": true,
+                "reference_top1_in_cached_top5": true,
+                "cached_top1_in_reference_top5": true
+              },
+              "note": "Later logits are not valid equivalence comparisons because the independent greedy prefixes diverged at this step."
+            },
+            "prompt_bidirectional_all_greedy_tokens_agree": true,
+            "prompt_bidirectional_diagnostic_role": "hard_gate_prompt_bidirectional_cached_vs_full_prefix_greedy"
+          }
+        }
+      }
+    },
+    {
+      "name": "python syntax parses",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_attention_control/analyze_attention_control.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/attention_control_utils.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/attention_masks.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/evaluate_attention_control.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/inference_smoke_attention_control.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/prepare_attention_control.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/runtime_attention_diagnostics.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/static_validation.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/test_attention_masks.py": "ok",
+        "experiments/cogmath_reasoning_attention_control/train_attention_control.py": "ok"
+      }
+    },
+    {
+      "name": "json files parse",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_attention_control/dataset_report.json": "ok",
+        "experiments/cogmath_reasoning_attention_control/resolved_configs/attention_control.json": "ok",
+        "experiments/cogmath_reasoning_attention_control/runtime_diagnostics_report.json": "ok",
+        "experiments/cogmath_reasoning_attention_control/static_validation_report.json": "ok"
+      }
+    },
+    {
+      "name": "slurm bash syntax",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_attention_control/slurm/analyze_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/diagnostic_prompt_bidir_original_only_40step.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/evaluate_validation_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/inference_smoke_cached_prompt_bidir.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/runtime_diagnostics.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/smoke_attention_control.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/static_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/test_attention_masks.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_attention_control/slurm/train_prompt_bidir_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        }
+      }
+    }
+  ],
+  "dataset_report": {
+    "experiment": "cogmath_reasoning_attention_control_qwen3_4b",
+    "research_question": "Does prompt-bidirectional input attention interact with reasoning-augmentation data under matched Qwen3-4B LoRA fine-tuning?",
+    "model_name": "Qwen/Qwen3-4B-Base",
+    "output_root": "outputs/cogmath_reasoning_attention_control_qwen3_4b",
+    "budget_control_output_root_for_causal_reuse": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+    "source_data_dir": "experiments/cogmath_reasoning_augmentation/data",
+    "training_max_length": 1536,
+    "max_steps": 232,
+    "validation_max_new_tokens": 512,
+    "seed": 42,
+    "attention_types": [
+      "causal",
+      "prompt_bidirectional"
+    ],
+    "training_datasets": [
+      "original_only",
+      "original_plus_dim2",
+      "original_plus_all"
+    ],
+    "conditions": {
+      "causal_original_only": {
+        "attention_type": "causal",
+        "training_data": "original_only",
+        "source_condition": "reasoning_original_only",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/adapters/budget_original_only",
+        "validation_evaluation_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/validation_evaluations/budget_original_only",
+        "causal_reference_condition": "budget_original_only"
+      },
+      "causal_original_plus_dim2": {
+        "attention_type": "causal",
+        "training_data": "original_plus_dim2",
+        "source_condition": "reasoning_original_plus_dim2",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/adapters/budget_original_plus_dim2",
+        "validation_evaluation_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/validation_evaluations/budget_original_plus_dim2",
+        "causal_reference_condition": "budget_original_plus_dim2"
+      },
+      "causal_original_plus_all": {
+        "attention_type": "causal",
+        "training_data": "original_plus_all",
+        "source_condition": "reasoning_original_plus_all",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl",
+        "adapter_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/adapters/budget_original_plus_all",
+        "validation_evaluation_dir": "outputs/cogmath_reasoning_budget_control_qwen3_4b/validation_evaluations/budget_original_plus_all",
+        "causal_reference_condition": "budget_original_plus_all"
+      },
+      "prompt_bidir_original_only": {
+        "attention_type": "prompt_bidirectional",
+        "training_data": "original_only",
+        "source_condition": "reasoning_original_only",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "adapter_dir": "outputs/cogmath_reasoning_attention_control_qwen3_4b/adapters/prompt_bidir_original_only",
+        "validation_evaluation_dir": "outputs/cogmath_reasoning_attention_control_qwen3_4b/validation_evaluations/prompt_bidir_original_only",
+        "causal_reference_condition": null
+      },
+      "prompt_bidir_original_plus_dim2": {
+        "attention_type": "prompt_bidirectional",
+        "training_data": "original_plus_dim2",
+        "source_condition": "reasoning_original_plus_dim2",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "adapter_dir": "outputs/cogmath_reasoning_attention_control_qwen3_4b/adapters/prompt_bidir_original_plus_dim2",
+        "validation_evaluation_dir": "outputs/cogmath_reasoning_attention_control_qwen3_4b/validation_evaluations/prompt_bidir_original_plus_dim2",
+        "causal_reference_condition": null
+      },
+      "prompt_bidir_original_plus_all": {
+        "attention_type": "prompt_bidirectional",
+        "training_data": "original_plus_all",
+        "source_condition": "reasoning_original_plus_all",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl",
+        "adapter_dir": "outputs/cogmath_reasoning_attention_control_qwen3_4b/adapters/prompt_bidir_original_plus_all",
+        "validation_evaluation_dir": "outputs/cogmath_reasoning_attention_control_qwen3_4b/validation_evaluations/prompt_bidir_original_plus_all",
+        "causal_reference_condition": null
+      }
+    },
+    "source_datasets": {
+      "original_only": {
+        "rows": 923,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923
+        },
+        "training_data": "original_only",
+        "source_condition": "reasoning_original_only",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "source_sha256": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9",
+        "row_order_sha256": "e7a62b280ca0a1a1addfdc0caa575b86f342d52f5c4427240dcadb9a61ad7cad",
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 4.0,
+        "optimizer_steps_per_epoch": 58,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 11,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      },
+      "original_plus_dim2": {
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "2": 923
+        },
+        "training_data": "original_plus_dim2",
+        "source_condition": "reasoning_original_plus_dim2",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "source_sha256": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785",
+        "row_order_sha256": "80fd8c03d182120213dc3021f872f93284fa9e7557f96a0281bfedc913dedab1",
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 2.0,
+        "optimizer_steps_per_epoch": 116,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 6,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      },
+      "original_plus_all": {
+        "rows": 4609,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "1": 923,
+          "2": 923,
+          "4": 923,
+          "6": 917
+        },
+        "training_data": "original_plus_all",
+        "source_condition": "reasoning_original_plus_all",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl",
+        "source_sha256": "a6b2e31a29a0774fb64a4bc0fed3dea5c77130bb71d4f7e8ccfb7b199b803354",
+        "row_order_sha256": "fb299fde644a31e75a79cd9d2bdec7f566492116ad4d047e64722ced783807e1",
+        "estimated_example_presentations": 3712,
+        "effective_epochs": 0.8053807767411586,
+        "optimizer_steps_per_epoch": 289,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 1,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 0,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      }
+    },
+    "methodological_notes": [
+      "The prompt-bidirectional condition changes only the model attention mask: prompt/input tokens are mutually visible; generated answer tokens remain causal.",
+      "The model-visible prompt does not contain an explicit boundary marker. The boundary is the token-level prompt length.",
+      "Causal adapters and validation predictions are reused from the budget-control experiment only after static validation confirms exact source-data, row-order, and hyperparameter compatibility.",
+      "No CogMath test-evaluation JSONL is opened by preparation or static validation."
+    ]
+  },
+  "note": "Static validation reads split IDs for leakage checks but does not open the held-out evaluation file."
+}

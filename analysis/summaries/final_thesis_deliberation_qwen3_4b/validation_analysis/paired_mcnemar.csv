@@ -1,0 +1,4 @@
+comparison,a_correct_b_wrong,a_wrong_b_correct,discordant,exact_two_sided_p
+first_pass_vs_causal_revision,222,5,227,4.557343236502237e-59
+first_pass_vs_bidir_trace_revision,647,0,647,3.42470210782563e-195
+causal_revision_vs_bidir_trace_revision,430,0,430,7.213264545145106e-130

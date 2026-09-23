@@ -1,0 +1,26 @@
+{
+  "created_by": "analysis/final_thesis/build_final_thesis_audit.py",
+  "do_not_access_test_until": "User confirms this manifest and the selected checkpoint set.",
+  "held_out_test_records_opened_in_this_audit": false,
+  "primary_validation_comparison_before_test": {
+    "conditions": [
+      "budget_original_only",
+      "budget_original_plus_dim2"
+    ],
+    "confidence_interval": "95% cluster bootstrap by base_id, seed=10000 reps",
+    "decoding": "greedy, max_new_tokens=512",
+    "experiment": "cogmath_reasoning_budget_control_qwen3_4b",
+    "extraction": "Final answer marker extraction from reasoning evaluation utilities",
+    "model": "Qwen/Qwen3-4B-Base",
+    "optimizer_steps": 232,
+    "paired_test": "exact McNemar on matched validation/test record correctness",
+    "primary_metric": "Dim2 word-scrambling validation accuracy and matched problem-level robustness metrics",
+    "prompt": "reasoning prompt from experiments/cogmath_reasoning_supervision/reasoning_utils.py",
+    "seed_policy": "three seeds requested; local repo currently defines seed 42 only"
+  },
+  "status": "frozen_pending_user_confirmation",
+  "test_file_paths_declared_but_not_read": [
+    "experiments/cogmath_augmentation/test_eval.jsonl",
+    "experiments/cogmath_attention/test_eval.jsonl"
+  ]
+}

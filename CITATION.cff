@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Mathematical Reasoning Robustness Under Controlled CogMath Transformations
+message: Please cite this repository and the associated MSc thesis.
+type: software
+authors:
+  - family-names: Koura
+    given-names: Malak
+    affiliation: Imperial College London
+date-released: 2026-09-23
+version: 0.1.0

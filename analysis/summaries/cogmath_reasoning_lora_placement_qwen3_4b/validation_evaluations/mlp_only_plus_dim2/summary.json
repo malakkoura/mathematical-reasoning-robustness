@@ -1,0 +1,77 @@
+{
+  "condition": "mlp_only_plus_dim2",
+  "overall": {
+    "correct": 651,
+    "total": 990,
+    "accuracy": 0.6575757575757576
+  },
+  "original": {
+    "correct": 156,
+    "total": 198,
+    "accuracy": 0.7878787878787878
+  },
+  "by_dimension": {
+    "original": {
+      "correct": 156,
+      "total": 198,
+      "accuracy": 0.7878787878787878
+    },
+    "dim1_paraphrasing": {
+      "correct": 164,
+      "total": 198,
+      "accuracy": 0.8282828282828283
+    },
+    "dim2_word_scrambling": {
+      "correct": 46,
+      "total": 198,
+      "accuracy": 0.23232323232323232
+    },
+    "dim4_irrelevant_information": {
+      "correct": 144,
+      "total": 198,
+      "accuracy": 0.7272727272727273
+    },
+    "dim6_numerical_variation": {
+      "correct": 141,
+      "total": 198,
+      "accuracy": 0.7121212121212122
+    }
+  },
+  "mean_variant_accuracy": {
+    "dimensions": [
+      "dim1_paraphrasing",
+      "dim2_word_scrambling",
+      "dim4_irrelevant_information",
+      "dim6_numerical_variation"
+    ],
+    "accuracy": 0.625,
+    "denominator": 792
+  },
+  "worst_dimension_accuracy": 0.23232323232323232,
+  "robustness_gap": 0.16287878787878785,
+  "matched_consistency_by_base_id": {
+    "all_forms_correct": 34,
+    "complete_case_base_ids": 198,
+    "rate": 0.1717171717171717
+  },
+  "all_forms_correct_rate": 0.1717171717171717,
+  "latency": {
+    "average_latency_seconds": 0.6109254711928465,
+    "median_latency_seconds": 0.5595164260594174,
+    "average_generated_tokens": 130.7919191919192,
+    "average_tokens_per_second": 224.58533455998395
+  },
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "adapter_dir": "outputs/cogmath_reasoning_lora_placement_qwen3_4b/adapters/mlp_only_plus_dim2",
+  "eval_file": "experiments/cogmath_augmentation/validation_eval.jsonl",
+  "prompt_template": "reasoning_utils.REASONING_PROMPT_TEMPLATE",
+  "max_new_tokens": 512,
+  "batch_size": 8,
+  "warmup_generations": 1,
+  "diagnostics": {
+    "cap_hits": 1,
+    "cap_hit_rate": 0.00101010101010101,
+    "missing_final_answer_markers": 2,
+    "missing_final_answer_marker_rate": 0.00202020202020202
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "test_set_used": false,
+  "max_new_tokens": 512,
+  "primary_comparison": "budget_original_only_vs_budget_original_plus_dim2",
+  "primary_comparisons": [
+    [
+      "budget_original_only",
+      "budget_original_plus_dim2"
+    ],
+    [
+      "budget_original_only",
+      "budget_original_plus_dim4"
+    ],
+    [
+      "budget_original_only",
+      "budget_original_plus_dim2_dim4"
+    ],
+    [
+      "budget_original_only",
+      "budget_original_plus_all"
+    ],
+    [
+      "budget_original_plus_dim2",
+      "budget_original_plus_dim2_dim4"
+    ],
+    [
+      "budget_original_plus_dim2",
+      "budget_original_plus_all"
+    ],
+    [
+      "budget_original_plus_dim4",
+      "budget_original_plus_dim2_dim4"
+    ],
+    [
+      "budget_original_plus_dim2_dim4",
+      "budget_original_plus_all"
+    ]
+  ]
+}

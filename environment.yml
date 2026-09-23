@@ -1,0 +1,19 @@
+name: mathematical-reasoning-robustness
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - pip:
+      - torch==2.13.0
+      - transformers==5.14.1
+      - peft==0.19.1
+      - accelerate==1.14.0
+      - datasets==5.0.0
+      - tokenizers==0.22.2

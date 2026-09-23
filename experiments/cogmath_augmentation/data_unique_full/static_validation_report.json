@@ -1,0 +1,211 @@
+{
+  "python_syntax": {
+    "passed": true,
+    "files": [
+      "unique_full_utils.py",
+      "prepare_unique_full.py",
+      "train_lora_unique_full.py",
+      "evaluate_model_unique_full.py",
+      "static_validation_unique_full.py",
+      "analyze_unique_full.py"
+    ]
+  },
+  "json": {
+    "passed": true,
+    "files": [
+      "experiments/cogmath_augmentation/data_unique_full/conditions.json",
+      "experiments/cogmath_augmentation/data_unique_full/dataset_report.json"
+    ]
+  },
+  "datasets": {
+    "passed": true,
+    "conditions": {
+      "original_only": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_only.jsonl",
+        "rows": 923,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 0,
+          "dim2": 0,
+          "dim4": 0,
+          "dim6": 0
+        },
+        "sha256": "19a9bb771af73b7ff443dcae950d8325806d4a6a2eaf6f43100544325a376e98",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      },
+      "original_plus_dim1": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim1.jsonl",
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 923,
+          "dim2": 0,
+          "dim4": 0,
+          "dim6": 0
+        },
+        "sha256": "a0f6f7b6dceb23f490daced9d6c436a6325d1b95d4d67a68416a94754c05b9cc",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      },
+      "original_plus_dim2": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim2.jsonl",
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 0,
+          "dim2": 923,
+          "dim4": 0,
+          "dim6": 0
+        },
+        "sha256": "6458135dc445f6d2ac1d109352f90f0c155e5eea16c2d9a0330813ff0118cb4d",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      },
+      "original_plus_dim4": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim4.jsonl",
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 0,
+          "dim2": 0,
+          "dim4": 923,
+          "dim6": 0
+        },
+        "sha256": "97966d15d9eae4d6d419170ba0363ab45f587a7ecb330bd9bc640124204ebe11",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      },
+      "original_plus_dim6": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim6.jsonl",
+        "rows": 1843,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 0,
+          "dim2": 0,
+          "dim4": 0,
+          "dim6": 920
+        },
+        "sha256": "107e47869fd9404f11387ae908e647a637a30fbe22ef074f19285bff41d1b866",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      },
+      "original_plus_dim2_dim4": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim2_dim4.jsonl",
+        "rows": 2769,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 0,
+          "dim2": 923,
+          "dim4": 923,
+          "dim6": 0
+        },
+        "sha256": "0bb866dfde92c7373b099d2f6a5f840c56a3abc2ac5a522cfac5f9a210de6c18",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      },
+      "original_plus_all": {
+        "file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_all.jsonl",
+        "rows": 4612,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "dim0": 923,
+          "dim1": 923,
+          "dim2": 923,
+          "dim4": 923,
+          "dim6": 920
+        },
+        "sha256": "a8f130edb0367a95785776186b519bab4e3bf9bdce8502a31fbb985b89e71781",
+        "duplicate_record_ids": [],
+        "repeated_original_base_ids": [],
+        "rep_record_ids": [],
+        "validation_overlap": [],
+        "test_overlap": [],
+        "non_train_base_ids": [],
+        "unintended_dimensions": [],
+        "target_error_count": 0
+      }
+    }
+  },
+  "deterministic_regeneration": {
+    "passed": true,
+    "checked_files": [
+      "train_original_only.jsonl",
+      "train_original_plus_all.jsonl",
+      "train_original_plus_dim1.jsonl",
+      "train_original_plus_dim2.jsonl",
+      "train_original_plus_dim2_dim4.jsonl",
+      "train_original_plus_dim4.jsonl",
+      "train_original_plus_dim6.jsonl"
+    ]
+  },
+  "slurm": {
+    "passed": true,
+    "scripts": {
+      "train_smoke_unique_full_qwen3_4b.sh": {
+        "returncode": 0,
+        "stderr": ""
+      },
+      "train_array_unique_full_qwen3_4b.sh": {
+        "returncode": 0,
+        "stderr": ""
+      },
+      "evaluate_validation_unique_full_qwen3_4b.sh": {
+        "returncode": 0,
+        "stderr": ""
+      },
+      "evaluate_test_unique_full_qwen3_4b.sh": {
+        "returncode": 0,
+        "stderr": ""
+      },
+      "analyze_unique_full_qwen3_4b.sh": {
+        "returncode": 0,
+        "stderr": ""
+      }
+    }
+  },
+  "output_root": "outputs/cogmath_augmentation_qwen3_4b_unique_full",
+  "legacy_output_collision": false
+}

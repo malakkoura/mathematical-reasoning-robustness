@@ -1,0 +1,39 @@
+{
+  "experiment": "cogmath_reasoning_budget_control_qwen3_4b",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "output_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+  "conditions": [
+    "budget_original_only",
+    "budget_original_plus_dim2",
+    "budget_original_plus_dim4",
+    "budget_original_plus_dim2_dim4",
+    "budget_original_plus_all"
+  ],
+  "max_steps": 232,
+  "stopping_criterion": "max_steps",
+  "training_max_length": 1536,
+  "validation_max_new_tokens": 512,
+  "seed": 42,
+  "learning_rate": 0.0002,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 16,
+  "warmup_steps": 20,
+  "bf16": true,
+  "gradient_checkpointing": true,
+  "use_cache": false,
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "methodological_note": "Optimizer updates are controlled exactly with max_steps=232. Example presentations are not assumed to equal max_steps * gradient_accumulation_steps because Transformers can perform optimizer steps on incomplete accumulation groups at finite-dataset epoch boundaries."
+}

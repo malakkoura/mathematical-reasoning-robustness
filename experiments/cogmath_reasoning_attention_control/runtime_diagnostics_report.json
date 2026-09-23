@@ -1,0 +1,2513 @@
+{
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "train_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+  "max_length": 1536,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "causal_equivalence": {
+    "passed": true,
+    "failures": [],
+    "record_ids": [
+      "GSM8K@41_original_reasoning"
+    ],
+    "supervised_token_counts": [
+      117
+    ],
+    "lora_target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "parameter_report": {
+      "total_parameters": 4038983168,
+      "trainable_parameters": 16515072,
+      "trainable_percentage": 0.4088918253199316
+    },
+    "native_loss": 0.4964173138141632,
+    "control_loss": 0.4964173138141632,
+    "loss_delta": 0.0,
+    "max_logit_delta": 0.0,
+    "attention_backend": "sdpa",
+    "position_ids": "not supplied; Qwen/Transformers derives native position_ids identically for both causal paths"
+  },
+  "prompt_bidirectional_model_leakage": {
+    "passed": true,
+    "failures": [],
+    "record_id": "GSM8K@41_original_reasoning",
+    "prompt_length": 157,
+    "valid_length": 274,
+    "future_position_changed": 273,
+    "earlier_positions_checked": [
+      270,
+      271,
+      272
+    ],
+    "replacement_token_id": 151660,
+    "original_loss": 1.2538357973098755,
+    "changed_loss": 1.2538357973098755,
+    "visibility_checks": {
+      "prompt_tokens_bidirectional": true,
+      "prompt_tokens_cannot_see_output": true,
+      "output_tokens_see_prompt": true,
+      "output_tokens_see_previous_output": true,
+      "output_tokens_cannot_see_future_output": true,
+      "padding_masked": true,
+      "mask_shape": [
+        1,
+        1,
+        1536,
+        1536
+      ],
+      "mask_min_negative": true,
+      "mask_max_zero": true
+    },
+    "attention_backend": "eager"
+  },
+  "cache_controls": {
+    "passed": true,
+    "failures": [],
+    "native_causal_forced_cache_control": {
+      "passed": true,
+      "failures": [],
+      "attention_type": "causal",
+      "record_id": "GSM8K@41_original_reasoning",
+      "steps_checked": 5,
+      "step_reports": [
+        {
+          "step": 0,
+          "prefix_length": 157,
+          "generated_length": 0,
+          "expected_next_token_position": 157,
+          "cache_length_before_decode": 157,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.0,
+          "mean_abs_logit_difference": 0.0,
+          "reference_top1_token": 8304,
+          "cached_top1_token": 8304,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            8304,
+            5338,
+            1249,
+            4498,
+            47
+          ],
+          "cached_top5_tokens": [
+            8304,
+            5338,
+            1249,
+            4498,
+            47
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 157,
+          "position_ids": [
+            [
+              157
+            ]
+          ],
+          "cache_position": [
+            157
+          ],
+          "decode_mask_shape": [
+            1,
+            158
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            158
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 158,
+          "cache_length_after_decode_expected": 158,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 1,
+          "prefix_length": 158,
+          "generated_length": 1,
+          "expected_next_token_position": 158,
+          "cache_length_before_decode": 158,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.048828125,
+          "reference_top1_token": 287,
+          "cached_top1_token": 287,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            287,
+            510,
+            220,
+            3019,
+            671
+          ],
+          "cached_top5_tokens": [
+            287,
+            510,
+            220,
+            3019,
+            671
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 158,
+          "position_ids": [
+            [
+              158
+            ]
+          ],
+          "cache_position": [
+            158
+          ],
+          "decode_mask_shape": [
+            1,
+            159
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            159
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 159,
+          "cache_length_after_decode_expected": 159,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 2,
+          "prefix_length": 159,
+          "generated_length": 2,
+          "expected_next_token_position": 159,
+          "cache_length_before_decode": 159,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.5,
+          "mean_abs_logit_difference": 0.07958984375,
+          "reference_top1_token": 510,
+          "cached_top1_token": 510,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            510,
+            25,
+            1447,
+            1882,
+            3019
+          ],
+          "cached_top5_tokens": [
+            510,
+            25,
+            1447,
+            1882,
+            3019
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 159,
+          "position_ids": [
+            [
+              159
+            ]
+          ],
+          "cache_position": [
+            159
+          ],
+          "decode_mask_shape": [
+            1,
+            160
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            160
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 160,
+          "cache_length_after_decode_expected": 160,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 3,
+          "prefix_length": 160,
+          "generated_length": 3,
+          "expected_next_token_position": 160,
+          "cache_length_before_decode": 160,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.049560546875,
+          "reference_top1_token": 16,
+          "cached_top1_token": 16,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            16,
+            785,
+            5338,
+            8304,
+            47
+          ],
+          "cached_top5_tokens": [
+            16,
+            785,
+            5338,
+            8304,
+            47
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 160,
+          "position_ids": [
+            [
+              160
+            ]
+          ],
+          "cache_position": [
+            160
+          ],
+          "decode_mask_shape": [
+            1,
+            161
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            161
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 161,
+          "cache_length_after_decode_expected": 161,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 4,
+          "prefix_length": 161,
+          "generated_length": 4,
+          "expected_next_token_position": 161,
+          "cache_length_before_decode": 161,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.28125,
+          "mean_abs_logit_difference": 0.06884765625,
+          "reference_top1_token": 279,
+          "cached_top1_token": 279,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            279,
+            93417,
+            902,
+            264,
+            1059
+          ],
+          "cached_top5_tokens": [
+            279,
+            93417,
+            264,
+            902,
+            1059
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 161,
+          "position_ids": [
+            [
+              161
+            ]
+          ],
+          "cache_position": [
+            161
+          ],
+          "decode_mask_shape": [
+            1,
+            162
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            162
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 162,
+          "cache_length_after_decode_expected": 162,
+          "cache_length_after_decode_matches_expected": true
+        }
+      ],
+      "max_abs_logit_difference_over_steps": 0.5,
+      "mean_abs_logit_difference_over_steps": 0.049365234375,
+      "all_top1_agree": true,
+      "all_top5_exact_agree": true,
+      "generation_cache_semantics": "Prompt-bidirectional prefill uses one 4D mask over prompt tokens; decode uses past_key_values with single-query masks over existing prompt+generated keys. Native causal control uses the same BF16/eager model with standard causal cache decoding.",
+      "attention_backend": "eager"
+    },
+    "prompt_bidirectional_forced_cache_control": {
+      "passed": true,
+      "failures": [],
+      "attention_type": "prompt_bidirectional",
+      "record_id": "GSM8K@41_original_reasoning",
+      "steps_checked": 5,
+      "step_reports": [
+        {
+          "step": 0,
+          "prefix_length": 157,
+          "generated_length": 0,
+          "expected_next_token_position": 157,
+          "cache_length_before_decode": 157,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.0,
+          "mean_abs_logit_difference": 0.0,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            27,
+            366,
+            785,
+            9454
+          ],
+          "cached_top5_tokens": [
+            19357,
+            27,
+            366,
+            785,
+            9454
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 157,
+          "position_ids": [
+            [
+              157
+            ]
+          ],
+          "cache_position": [
+            157
+          ],
+          "decode_mask_shape": [
+            1,
+            1,
+            1,
+            158
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            1,
+            1,
+            158
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 158,
+          "cache_length_after_decode_expected": 158,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 1,
+          "prefix_length": 158,
+          "generated_length": 1,
+          "expected_next_token_position": 158,
+          "cache_length_before_decode": 158,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.5,
+          "mean_abs_logit_difference": 0.07861328125,
+          "reference_top1_token": 510,
+          "cached_top1_token": 510,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            510,
+            25,
+            198,
+            366,
+            1447
+          ],
+          "cached_top5_tokens": [
+            510,
+            25,
+            366,
+            198,
+            1447
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 158,
+          "position_ids": [
+            [
+              158
+            ]
+          ],
+          "cache_position": [
+            158
+          ],
+          "decode_mask_shape": [
+            1,
+            1,
+            1,
+            159
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            1,
+            1,
+            159
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 159,
+          "cache_length_after_decode_expected": 159,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 2,
+          "prefix_length": 159,
+          "generated_length": 2,
+          "expected_next_token_position": 159,
+          "cache_length_before_decode": 159,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.5,
+          "mean_abs_logit_difference": 0.0966796875,
+          "reference_top1_token": 510,
+          "cached_top1_token": 510,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            510,
+            11017,
+            323,
+            198,
+            25
+          ],
+          "cached_top5_tokens": [
+            510,
+            11017,
+            323,
+            198,
+            25
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 159,
+          "position_ids": [
+            [
+              159
+            ]
+          ],
+          "cache_position": [
+            159
+          ],
+          "decode_mask_shape": [
+            1,
+            1,
+            1,
+            160
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            1,
+            1,
+            160
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 160,
+          "cache_length_after_decode_expected": 160,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 3,
+          "prefix_length": 160,
+          "generated_length": 3,
+          "expected_next_token_position": 160,
+          "cache_length_before_decode": 160,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.765625,
+          "mean_abs_logit_difference": 0.1162109375,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            785,
+            14582,
+            8304,
+            510
+          ],
+          "cached_top5_tokens": [
+            19357,
+            785,
+            14582,
+            8304,
+            510
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 160,
+          "position_ids": [
+            [
+              160
+            ]
+          ],
+          "cache_position": [
+            160
+          ],
+          "decode_mask_shape": [
+            1,
+            1,
+            1,
+            161
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            1,
+            1,
+            161
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 161,
+          "cache_length_after_decode_expected": 161,
+          "cache_length_after_decode_matches_expected": true
+        },
+        {
+          "step": 4,
+          "prefix_length": 161,
+          "generated_length": 4,
+          "expected_next_token_position": 161,
+          "cache_length_before_decode": 161,
+          "cache_length_matches_prefix": true,
+          "max_abs_logit_difference": 0.8125,
+          "mean_abs_logit_difference": 0.306640625,
+          "reference_top1_token": 279,
+          "cached_top1_token": 279,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            279,
+            42491,
+            198,
+            419,
+            264
+          ],
+          "cached_top5_tokens": [
+            279,
+            42491,
+            198,
+            419,
+            264
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true,
+          "fed_token_position": 161,
+          "position_ids": [
+            [
+              161
+            ]
+          ],
+          "cache_position": [
+            161
+          ],
+          "decode_mask_shape": [
+            1,
+            1,
+            1,
+            162
+          ],
+          "decode_mask_shape_expected": [
+            1,
+            1,
+            1,
+            162
+          ],
+          "decode_mask_shape_matches_expected": true,
+          "cache_length_after_decode": 162,
+          "cache_length_after_decode_expected": 162,
+          "cache_length_after_decode_matches_expected": true
+        }
+      ],
+      "max_abs_logit_difference_over_steps": 0.8125,
+      "mean_abs_logit_difference_over_steps": 0.11962890625,
+      "all_top1_agree": true,
+      "all_top5_exact_agree": true,
+      "generation_cache_semantics": "Prompt-bidirectional prefill uses one 4D mask over prompt tokens; decode uses past_key_values with single-query masks over existing prompt+generated keys. Native causal control uses the same BF16/eager model with standard causal cache decoding.",
+      "attention_backend": "eager"
+    },
+    "native_causal_greedy_cache_control": {
+      "passed": true,
+      "failures": [],
+      "attention_type": "causal",
+      "hard_gate": false,
+      "diagnostic_role": "calibration_only_native_causal_independent_greedy",
+      "record_id": "GSM8K@41_original_reasoning",
+      "steps": 32,
+      "cached_greedy_token_ids": [
+        8304,
+        220,
+        16,
+        25,
+        29901,
+        279,
+        6010,
+        93417,
+        646,
+        2510,
+        279,
+        1258,
+        32730,
+        979,
+        537,
+        9963,
+        279,
+        18747,
+        10812,
+        624,
+        47,
+        8618,
+        646,
+        2510,
+        279,
+        1258,
+        32730,
+        369,
+        264,
+        6010,
+        315,
+        220
+      ],
+      "reference_full_prefix_greedy_token_ids": [
+        8304,
+        220,
+        16,
+        25,
+        29901,
+        279,
+        6010,
+        93417,
+        646,
+        2510,
+        279,
+        1258,
+        32730,
+        2041,
+        279,
+        18747,
+        10812,
+        624,
+        47,
+        8618,
+        646,
+        2510,
+        279,
+        1258,
+        32730,
+        369,
+        264,
+        6010,
+        315,
+        220,
+        19,
+        15
+      ],
+      "cached_greedy_text": "Step 1: Determine the distance Polly can throw the javelin when not holding the gemstone.\nPolly can throw the javelin for a distance of ",
+      "reference_full_prefix_greedy_text": "Step 1: Determine the distance Polly can throw the javelin without the gemstone.\nPolly can throw the javelin for a distance of 40",
+      "all_greedy_tokens_agree": false,
+      "first_divergence": {
+        "step": 13,
+        "cached_token": 979,
+        "reference_token": 2041,
+        "cached_token_in_reference_top5": true,
+        "reference_token_in_cached_top5": true,
+        "comparison": {
+          "max_abs_logit_difference": 0.25,
+          "mean_abs_logit_difference": 0.0439453125,
+          "reference_top1_token": 2041,
+          "cached_top1_token": 979,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            2041,
+            979,
+            448,
+            1393,
+            14279
+          ],
+          "cached_top5_tokens": [
+            979,
+            2041,
+            448,
+            1393,
+            14279
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        "note": "Later logits are not valid equivalence comparisons because the independent greedy prefixes diverged at this step."
+      },
+      "comparison_valid_after_first_divergence": false,
+      "per_step": [
+        {
+          "step": 0,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.0,
+          "mean_abs_logit_difference": 0.0,
+          "reference_top1_token": 8304,
+          "cached_top1_token": 8304,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            8304,
+            5338,
+            1249,
+            4498,
+            47
+          ],
+          "cached_top5_tokens": [
+            8304,
+            5338,
+            1249,
+            4498,
+            47
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 1,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.0546875,
+          "reference_top1_token": 220,
+          "cached_top1_token": 220,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            220,
+            14319,
+            553,
+            16,
+            825
+          ],
+          "cached_top5_tokens": [
+            220,
+            14319,
+            553,
+            16,
+            825
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 2,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.5,
+          "mean_abs_logit_difference": 0.11865234375,
+          "reference_top1_token": 16,
+          "cached_top1_token": 16,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            16,
+            15,
+            17,
+            220,
+            19
+          ],
+          "cached_top5_tokens": [
+            16,
+            15,
+            17,
+            220,
+            19
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 3,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.05126953125,
+          "reference_top1_token": 25,
+          "cached_top1_token": 25,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            25,
+            510,
+            13,
+            481,
+            1447
+          ],
+          "cached_top5_tokens": [
+            25,
+            510,
+            13,
+            481,
+            1447
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 4,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.044189453125,
+          "reference_top1_token": 29901,
+          "cached_top1_token": 29901,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            29901,
+            93417,
+            64547,
+            20517,
+            7379
+          ],
+          "cached_top5_tokens": [
+            29901,
+            93417,
+            64547,
+            20517,
+            7379
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 5,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.0556640625,
+          "reference_top1_token": 279,
+          "cached_top1_token": 279,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            279,
+            93417,
+            1246,
+            393,
+            6010
+          ],
+          "cached_top5_tokens": [
+            279,
+            93417,
+            1246,
+            393,
+            6010
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 6,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.154296875,
+          "reference_top1_token": 6010,
+          "cached_top1_token": 6010,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            6010,
+            7192,
+            2088,
+            4024,
+            5545
+          ],
+          "cached_top5_tokens": [
+            6010,
+            7192,
+            2088,
+            5545,
+            4024
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 7,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.25,
+          "mean_abs_logit_difference": 0.034912109375,
+          "reference_top1_token": 93417,
+          "cached_top1_token": 93417,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            93417,
+            279,
+            315,
+            429,
+            518
+          ],
+          "cached_top5_tokens": [
+            93417,
+            279,
+            315,
+            429,
+            518
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 8,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.265625,
+          "mean_abs_logit_difference": 0.056640625,
+          "reference_top1_token": 646,
+          "cached_top1_token": 646,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            646,
+            1410,
+            3787,
+            594,
+            1035
+          ],
+          "cached_top5_tokens": [
+            646,
+            1410,
+            3787,
+            594,
+            1035
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 9,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.1875,
+          "mean_abs_logit_difference": 0.0341796875,
+          "reference_top1_token": 2510,
+          "cached_top1_token": 2510,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            2510,
+            4201,
+            5545,
+            25187,
+            14279
+          ],
+          "cached_top5_tokens": [
+            2510,
+            4201,
+            5545,
+            25187,
+            14279
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 10,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.0634765625,
+          "reference_top1_token": 279,
+          "cached_top1_token": 279,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            279,
+            264,
+            448,
+            1059,
+            2041
+          ],
+          "cached_top5_tokens": [
+            279,
+            264,
+            448,
+            1059,
+            2041
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 11,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.1875,
+          "mean_abs_logit_difference": 0.024169921875,
+          "reference_top1_token": 1258,
+          "cached_top1_token": 1258,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            1258,
+            6623,
+            20748,
+            18747,
+            274
+          ],
+          "cached_top5_tokens": [
+            1258,
+            6623,
+            20748,
+            18747,
+            274
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 12,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.384765625,
+          "mean_abs_logit_difference": 0.08154296875,
+          "reference_top1_token": 32730,
+          "cached_top1_token": 32730,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            32730,
+            3732,
+            301,
+            258,
+            613
+          ],
+          "cached_top5_tokens": [
+            32730,
+            3732,
+            301,
+            258,
+            613
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 13,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.25,
+          "mean_abs_logit_difference": 0.0439453125,
+          "reference_top1_token": 2041,
+          "cached_top1_token": 979,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            2041,
+            979,
+            448,
+            1393,
+            14279
+          ],
+          "cached_top5_tokens": [
+            979,
+            2041,
+            448,
+            1393,
+            14279
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 14,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 12.5,
+          "mean_abs_logit_difference": 1.46875,
+          "reference_top1_token": 279,
+          "cached_top1_token": 537,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            279,
+            9963,
+            1667,
+            894,
+            264
+          ],
+          "cached_top5_tokens": [
+            537,
+            9963,
+            1340,
+            279,
+            4183
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 15,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 18.125,
+          "mean_abs_logit_difference": 1.8984375,
+          "reference_top1_token": 18747,
+          "cached_top1_token": 9963,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            18747,
+            274,
+            6623,
+            65841,
+            9798
+          ],
+          "cached_top5_tokens": [
+            9963,
+            1667,
+            12233,
+            15331,
+            3432
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 16,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 19.75,
+          "mean_abs_logit_difference": 2.046875,
+          "reference_top1_token": 10812,
+          "cached_top1_token": 279,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            10812,
+            624,
+            13,
+            198,
+            32510
+          ],
+          "cached_top5_tokens": [
+            279,
+            894,
+            264,
+            4113,
+            432
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 17,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 21.75,
+          "mean_abs_logit_difference": 2.421875,
+          "reference_top1_token": 624,
+          "cached_top1_token": 18747,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            624,
+            13,
+            11,
+            198,
+            25
+          ],
+          "cached_top5_tokens": [
+            18747,
+            274,
+            6623,
+            65841,
+            9798
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 18,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 21.375,
+          "mean_abs_logit_difference": 3.34375,
+          "reference_top1_token": 47,
+          "cached_top1_token": 10812,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            47,
+            8304,
+            26040,
+            16141,
+            14778
+          ],
+          "cached_top5_tokens": [
+            10812,
+            624,
+            13,
+            9798,
+            198
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 19,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 27.0,
+          "mean_abs_logit_difference": 8.0625,
+          "reference_top1_token": 8618,
+          "cached_top1_token": 624,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            8618,
+            791,
+            284,
+            14225,
+            5400
+          ],
+          "cached_top5_tokens": [
+            624,
+            13,
+            11,
+            25,
+            198
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 20,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 24.0,
+          "mean_abs_logit_difference": 2.828125,
+          "reference_top1_token": 646,
+          "cached_top1_token": 47,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            646,
+            594,
+            3787,
+            2041,
+            1410
+          ],
+          "cached_top5_tokens": [
+            47,
+            8304,
+            16141,
+            4498,
+            14778
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 21,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 24.5,
+          "mean_abs_logit_difference": 3.171875,
+          "reference_top1_token": 2510,
+          "cached_top1_token": 8618,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            2510,
+            14279,
+            3331,
+            1172,
+            25187
+          ],
+          "cached_top5_tokens": [
+            8618,
+            791,
+            284,
+            14225,
+            5400
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 22,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 15.75,
+          "mean_abs_logit_difference": 1.5703125,
+          "reference_top1_token": 279,
+          "cached_top1_token": 646,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            279,
+            432,
+            264,
+            369,
+            1059
+          ],
+          "cached_top5_tokens": [
+            646,
+            594,
+            3787,
+            1410,
+            4157
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 23,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 16.5,
+          "mean_abs_logit_difference": 3.171875,
+          "reference_top1_token": 1258,
+          "cached_top1_token": 2510,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            1258,
+            6623,
+            20748,
+            16868,
+            502
+          ],
+          "cached_top5_tokens": [
+            2510,
+            14279,
+            3331,
+            1172,
+            25187
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 24,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 25.5,
+          "mean_abs_logit_difference": 8.0,
+          "reference_top1_token": 32730,
+          "cached_top1_token": 279,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            32730,
+            29708,
+            71620,
+            3732,
+            36637
+          ],
+          "cached_top5_tokens": [
+            279,
+            432,
+            264,
+            369,
+            1059
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 25,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 20.5,
+          "mean_abs_logit_difference": 3.0,
+          "reference_top1_token": 369,
+          "cached_top1_token": 1258,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            369,
+            220,
+            264,
+            2041,
+            705
+          ],
+          "cached_top5_tokens": [
+            1258,
+            6623,
+            20748,
+            502,
+            16868
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 26,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 29.0,
+          "mean_abs_logit_difference": 10.9375,
+          "reference_top1_token": 264,
+          "cached_top1_token": 32730,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            264,
+            220,
+            705,
+            279,
+            458
+          ],
+          "cached_top5_tokens": [
+            32730,
+            29708,
+            71620,
+            301,
+            3732
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 27,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 19.5,
+          "mean_abs_logit_difference": 4.03125,
+          "reference_top1_token": 6010,
+          "cached_top1_token": 369,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            6010,
+            7192,
+            2790,
+            4622,
+            5297
+          ],
+          "cached_top5_tokens": [
+            369,
+            220,
+            264,
+            705,
+            11
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 28,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 17.125,
+          "mean_abs_logit_difference": 2.203125,
+          "reference_top1_token": 315,
+          "cached_top1_token": 264,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            315,
+            220,
+            2041,
+            6144,
+            429
+          ],
+          "cached_top5_tokens": [
+            264,
+            220,
+            705,
+            279,
+            458
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 29,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 17.0,
+          "mean_abs_logit_difference": 5.1875,
+          "reference_top1_token": 220,
+          "cached_top1_token": 6010,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            220,
+            1599,
+            856,
+            25,
+            330
+          ],
+          "cached_top5_tokens": [
+            6010,
+            7192,
+            2790,
+            4622,
+            220
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 30,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 22.25,
+          "mean_abs_logit_difference": 1.8828125,
+          "reference_top1_token": 19,
+          "cached_top1_token": 315,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            19,
+            16,
+            18,
+            17,
+            20
+          ],
+          "cached_top5_tokens": [
+            315,
+            220,
+            429,
+            6144,
+            2878
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        },
+        {
+          "step": 31,
+          "prefixes_identical_before_step": false,
+          "max_abs_logit_difference": 22.875,
+          "mean_abs_logit_difference": 2.546875,
+          "reference_top1_token": 15,
+          "cached_top1_token": 220,
+          "top1_agrees": false,
+          "reference_top5_tokens": [
+            15,
+            20,
+            7541,
+            17,
+            23
+          ],
+          "cached_top5_tokens": [
+            220,
+            1599,
+            856,
+            25,
+            330
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": false,
+          "cached_top1_in_reference_top5": false
+        }
+      ],
+      "max_abs_logit_difference_over_steps": 29.0,
+      "mean_abs_logit_difference_over_steps": 2.1434707641601562
+    },
+    "prompt_bidirectional_greedy_cache_control": {
+      "passed": true,
+      "failures": [],
+      "attention_type": "prompt_bidirectional",
+      "hard_gate": true,
+      "diagnostic_role": "hard_gate_prompt_bidirectional_cached_vs_full_prefix_greedy",
+      "record_id": "GSM8K@41_original_reasoning",
+      "steps": 32,
+      "cached_greedy_token_ids": [
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226
+      ],
+      "reference_full_prefix_greedy_token_ids": [
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226,
+        25,
+        366,
+        9217,
+        1339,
+        19357,
+        4226
+      ],
+      "cached_greedy_text": "Final answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer",
+      "reference_full_prefix_greedy_text": "Final answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer: <answer>\n\nFinal answer",
+      "all_greedy_tokens_agree": true,
+      "first_divergence": null,
+      "comparison_valid_after_first_divergence": true,
+      "per_step": [
+        {
+          "step": 0,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.0,
+          "mean_abs_logit_difference": 0.0,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            27,
+            366,
+            785,
+            9454
+          ],
+          "cached_top5_tokens": [
+            19357,
+            27,
+            366,
+            785,
+            9454
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 1,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.4375,
+          "mean_abs_logit_difference": 0.06591796875,
+          "reference_top1_token": 4226,
+          "cached_top1_token": 4226,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            4226,
+            198,
+            6358,
+            9217,
+            151643
+          ],
+          "cached_top5_tokens": [
+            4226,
+            198,
+            6358,
+            151643,
+            366
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 2,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.04931640625,
+          "reference_top1_token": 25,
+          "cached_top1_token": 25,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            25,
+            366,
+            510,
+            31252,
+            198
+          ],
+          "cached_top5_tokens": [
+            25,
+            366,
+            510,
+            31252,
+            198
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 3,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.5625,
+          "mean_abs_logit_difference": 0.125,
+          "reference_top1_token": 366,
+          "cached_top1_token": 366,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            366,
+            151643,
+            77565,
+            576,
+            220
+          ],
+          "cached_top5_tokens": [
+            366,
+            151643,
+            77565,
+            576,
+            220
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 4,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.4453125,
+          "mean_abs_logit_difference": 0.0625,
+          "reference_top1_token": 9217,
+          "cached_top1_token": 9217,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            9217,
+            11822,
+            151643,
+            9693,
+            4226
+          ],
+          "cached_top5_tokens": [
+            9217,
+            11822,
+            151643,
+            9693,
+            4226
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 5,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.4375,
+          "mean_abs_logit_difference": 0.05615234375,
+          "reference_top1_token": 1339,
+          "cached_top1_token": 1339,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            1339,
+            397,
+            29,
+            1472,
+            1784
+          ],
+          "cached_top5_tokens": [
+            1339,
+            397,
+            29,
+            1472,
+            1784
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 6,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.34375,
+          "mean_abs_logit_difference": 0.05517578125,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            14582,
+            16141,
+            522,
+            9454
+          ],
+          "cached_top5_tokens": [
+            19357,
+            14582,
+            16141,
+            522,
+            9454
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 7,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.53125,
+          "mean_abs_logit_difference": 0.05859375,
+          "reference_top1_token": 4226,
+          "cached_top1_token": 4226,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            4226,
+            6358,
+            198,
+            271,
+            151643
+          ],
+          "cached_top5_tokens": [
+            4226,
+            6358,
+            198,
+            271,
+            151643
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 8,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.06689453125,
+          "reference_top1_token": 25,
+          "cached_top1_token": 25,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            25,
+            1447,
+            510,
+            366,
+            31252
+          ],
+          "cached_top5_tokens": [
+            25,
+            1447,
+            510,
+            366,
+            31252
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 9,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.4375,
+          "mean_abs_logit_difference": 0.0791015625,
+          "reference_top1_token": 366,
+          "cached_top1_token": 366,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            366,
+            13023,
+            151643,
+            77565,
+            220
+          ],
+          "cached_top5_tokens": [
+            366,
+            151643,
+            13023,
+            77565,
+            220
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 10,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.050537109375,
+          "reference_top1_token": 9217,
+          "cached_top1_token": 9217,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            9217,
+            11822,
+            151643,
+            9693,
+            4226
+          ],
+          "cached_top5_tokens": [
+            9217,
+            11822,
+            151643,
+            9693,
+            4226
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 11,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.34375,
+          "mean_abs_logit_difference": 0.0634765625,
+          "reference_top1_token": 1339,
+          "cached_top1_token": 1339,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            1339,
+            397,
+            29,
+            1784,
+            271
+          ],
+          "cached_top5_tokens": [
+            1339,
+            397,
+            29,
+            1784,
+            271
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 12,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.359375,
+          "mean_abs_logit_difference": 0.052001953125,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            16141,
+            522,
+            9454,
+            13060
+          ],
+          "cached_top5_tokens": [
+            19357,
+            16141,
+            522,
+            9454,
+            785
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 13,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3984375,
+          "mean_abs_logit_difference": 0.0615234375,
+          "reference_top1_token": 4226,
+          "cached_top1_token": 4226,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            4226,
+            6358,
+            271,
+            198,
+            151643
+          ],
+          "cached_top5_tokens": [
+            4226,
+            6358,
+            271,
+            198,
+            151643
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 14,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.40625,
+          "mean_abs_logit_difference": 0.052490234375,
+          "reference_top1_token": 25,
+          "cached_top1_token": 25,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            25,
+            1447,
+            510,
+            31252,
+            366
+          ],
+          "cached_top5_tokens": [
+            25,
+            1447,
+            510,
+            31252,
+            366
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 15,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.050048828125,
+          "reference_top1_token": 366,
+          "cached_top1_token": 366,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            366,
+            77565,
+            151643,
+            13023,
+            220
+          ],
+          "cached_top5_tokens": [
+            366,
+            151643,
+            77565,
+            13023,
+            220
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 16,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.05078125,
+          "reference_top1_token": 9217,
+          "cached_top1_token": 9217,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            9217,
+            11822,
+            4226,
+            151643,
+            9693
+          ],
+          "cached_top5_tokens": [
+            9217,
+            11822,
+            4226,
+            151643,
+            9693
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 17,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.0498046875,
+          "reference_top1_token": 1339,
+          "cached_top1_token": 1339,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            1339,
+            29,
+            397,
+            10370,
+            271
+          ],
+          "cached_top5_tokens": [
+            1339,
+            29,
+            397,
+            10370,
+            271
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 18,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.0595703125,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            16141,
+            522,
+            9454,
+            5842
+          ],
+          "cached_top5_tokens": [
+            19357,
+            16141,
+            522,
+            5842,
+            9454
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 19,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.5546875,
+          "mean_abs_logit_difference": 0.08447265625,
+          "reference_top1_token": 4226,
+          "cached_top1_token": 4226,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            4226,
+            6358,
+            271,
+            198,
+            6524
+          ],
+          "cached_top5_tokens": [
+            4226,
+            6358,
+            271,
+            198,
+            6524
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 20,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.04833984375,
+          "reference_top1_token": 25,
+          "cached_top1_token": 25,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            25,
+            1447,
+            510,
+            31252,
+            366
+          ],
+          "cached_top5_tokens": [
+            25,
+            1447,
+            510,
+            31252,
+            366
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 21,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.4375,
+          "mean_abs_logit_difference": 0.0771484375,
+          "reference_top1_token": 366,
+          "cached_top1_token": 366,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            366,
+            77565,
+            151643,
+            220,
+            13023
+          ],
+          "cached_top5_tokens": [
+            366,
+            77565,
+            151643,
+            220,
+            13023
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 22,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.40625,
+          "mean_abs_logit_difference": 0.07421875,
+          "reference_top1_token": 9217,
+          "cached_top1_token": 9217,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            9217,
+            11822,
+            4226,
+            151643,
+            6182
+          ],
+          "cached_top5_tokens": [
+            9217,
+            11822,
+            4226,
+            151643,
+            6182
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 23,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.28125,
+          "mean_abs_logit_difference": 0.04443359375,
+          "reference_top1_token": 1339,
+          "cached_top1_token": 1339,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            1339,
+            271,
+            29,
+            397,
+            10370
+          ],
+          "cached_top5_tokens": [
+            1339,
+            271,
+            397,
+            29,
+            630
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 24,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.05908203125,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            16141,
+            522,
+            5842,
+            785
+          ],
+          "cached_top5_tokens": [
+            19357,
+            16141,
+            522,
+            5842,
+            9454
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 25,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3515625,
+          "mean_abs_logit_difference": 0.07275390625,
+          "reference_top1_token": 4226,
+          "cached_top1_token": 4226,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            4226,
+            6358,
+            271,
+            198,
+            6524
+          ],
+          "cached_top5_tokens": [
+            4226,
+            6358,
+            271,
+            198,
+            6524
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 26,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.05908203125,
+          "reference_top1_token": 25,
+          "cached_top1_token": 25,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            25,
+            1447,
+            510,
+            31252,
+            366
+          ],
+          "cached_top5_tokens": [
+            25,
+            1447,
+            510,
+            31252,
+            366
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 27,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3125,
+          "mean_abs_logit_difference": 0.05029296875,
+          "reference_top1_token": 366,
+          "cached_top1_token": 366,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            366,
+            151643,
+            77565,
+            220,
+            13023
+          ],
+          "cached_top5_tokens": [
+            366,
+            151643,
+            77565,
+            220,
+            508
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 28,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.28125,
+          "mean_abs_logit_difference": 0.048095703125,
+          "reference_top1_token": 9217,
+          "cached_top1_token": 9217,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            9217,
+            11822,
+            151643,
+            4226,
+            271
+          ],
+          "cached_top5_tokens": [
+            9217,
+            11822,
+            151643,
+            4226,
+            34484
+          ],
+          "top5_exact_agrees": false,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 29,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.5,
+          "mean_abs_logit_difference": 0.08203125,
+          "reference_top1_token": 1339,
+          "cached_top1_token": 1339,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            1339,
+            271,
+            29,
+            397,
+            630
+          ],
+          "cached_top5_tokens": [
+            1339,
+            271,
+            29,
+            397,
+            630
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 30,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.3984375,
+          "mean_abs_logit_difference": 0.0576171875,
+          "reference_top1_token": 19357,
+          "cached_top1_token": 19357,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            19357,
+            16141,
+            522,
+            9454,
+            5842
+          ],
+          "cached_top5_tokens": [
+            19357,
+            16141,
+            522,
+            9454,
+            5842
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        },
+        {
+          "step": 31,
+          "prefixes_identical_before_step": true,
+          "max_abs_logit_difference": 0.375,
+          "mean_abs_logit_difference": 0.0556640625,
+          "reference_top1_token": 4226,
+          "cached_top1_token": 4226,
+          "top1_agrees": true,
+          "reference_top5_tokens": [
+            4226,
+            6358,
+            271,
+            6524,
+            198
+          ],
+          "cached_top5_tokens": [
+            4226,
+            6358,
+            271,
+            6524,
+            198
+          ],
+          "top5_exact_agrees": true,
+          "reference_top1_in_cached_top5": true,
+          "cached_top1_in_reference_top5": true
+        }
+      ],
+      "max_abs_logit_difference_over_steps": 0.5625,
+      "mean_abs_logit_difference_over_steps": 0.06006622314453125
+    },
+    "behavioural_acceptance_rule": {
+      "forced_steps": "top-1 decisions must agree for steps 0 through cached_decode_steps",
+      "greedy_steps": "cached greedy token sequence must match full-prefix greedy token sequence for 32 steps",
+      "native_causal_greedy": "reported as calibration-only; independent trajectory divergence is not a hard gate because later logits have different prefixes",
+      "numeric_drift": "prompt-bidirectional max absolute logit drift must be no more than about 2x native causal BF16/eager cache-control drift plus 1e-3",
+      "reason": "BF16 eager cached decoding can differ numerically from full-prefix recomputation even when decisions are unchanged; native causal control calibrates this drift.",
+      "prompt_bidir_numeric_threshold_used": 1.001
+    }
+  },
+  "test_set_used": false,
+  "passed": true
+}

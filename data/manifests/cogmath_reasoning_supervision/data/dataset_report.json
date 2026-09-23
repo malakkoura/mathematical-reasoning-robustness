@@ -1,0 +1,106 @@
+{
+  "experiment": "cogmath_reasoning_supervision_qwen3_4b",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "source_train_file": "experiments/cogmath_augmentation/data_unique_full/train_original_only.jsonl",
+  "output_file": "experiments/cogmath_reasoning_supervision/data/train_original_only_reasoning.jsonl",
+  "output_sha256": "19a915d7318d2bb43d8e781decb74b9e1cb2d912e9e6ab70ac4fc9918849f22f",
+  "row_count": 923,
+  "unique_base_ids": 923,
+  "condition": "reasoning_original_only",
+  "dimension_counts": {
+    "0": 923
+  },
+  "target_format": "Reasoning:\\n<answer_raw before ####>\\n\\nFinal answer: <final_answer>",
+  "answer_raw_final_answer_agrees": true,
+  "no_gsm8k_marker_in_training_target": true,
+  "all_targets_end_with_gold_final_answer": true,
+  "leakage": {
+    "train_validation_overlap": [],
+    "train_test_overlap": [],
+    "validation_test_overlap": []
+  },
+  "token_stats": {
+    "character_lengths": {
+      "min": 318,
+      "median": 657,
+      "p90": 980.8000000000001,
+      "p95": 1072.3999999999999,
+      "p99": 1342.4799999999996,
+      "max": 1776
+    },
+    "whitespace_token_lengths": {
+      "min": 50,
+      "median": 118,
+      "p90": 177.0,
+      "p95": 193.0,
+      "p99": 237.1199999999999,
+      "max": 335
+    },
+    "tokenizer_status": "available",
+    "model_name": "Qwen/Qwen3-4B-Base",
+    "candidate_max_lengths": [
+      512,
+      768,
+      1024,
+      1536,
+      2048
+    ],
+    "chosen_max_length": 768,
+    "chosen_max_length_status": "exact",
+    "examples_over_candidate_lengths": {
+      "512": 2,
+      "768": 0,
+      "1024": 0,
+      "1536": 0,
+      "2048": 0
+    },
+    "token_lengths": {
+      "min": 103,
+      "median": 212,
+      "p90": 312.0,
+      "p95": 347.9,
+      "p99": 419.67999999999984,
+      "max": 554
+    },
+    "prompt_token_lengths": {
+      "min": 52,
+      "median": 86,
+      "p90": 122.0,
+      "p95": 134.0,
+      "p99": 157.0,
+      "max": 217
+    },
+    "target_token_lengths": {
+      "min": 33,
+      "median": 122,
+      "p90": 205.80000000000007,
+      "p95": 226.79999999999995,
+      "p99": 296.5799999999997,
+      "max": 419
+    },
+    "examples_truncated_at_512": 2,
+    "examples_truncated_at_768": 0
+  },
+  "training_hyperparameters_preserved_from_direct_answer_where_applicable": {
+    "epochs": 2,
+    "learning_rate": 0.0002,
+    "seed": 42,
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 16,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "bf16": true,
+    "gradient_checkpointing": true,
+    "use_cache": false
+  }
+}

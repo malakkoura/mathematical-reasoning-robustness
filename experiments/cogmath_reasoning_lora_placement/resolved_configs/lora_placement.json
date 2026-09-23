@@ -1,0 +1,73 @@
+{
+  "experiment": "cogmath_reasoning_lora_placement_qwen3_4b",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "output_root": "outputs/cogmath_reasoning_lora_placement_qwen3_4b",
+  "new_training_conditions": [
+    "q_only_original_only",
+    "q_only_plus_dim2",
+    "qv_original_only",
+    "qv_plus_dim2",
+    "attention_all_original_only",
+    "attention_all_plus_dim2",
+    "mlp_only_original_only",
+    "mlp_only_plus_dim2"
+  ],
+  "analysis_conditions": [
+    "q_only_original_only",
+    "q_only_plus_dim2",
+    "qv_original_only",
+    "qv_plus_dim2",
+    "attention_all_original_only",
+    "attention_all_plus_dim2",
+    "mlp_only_original_only",
+    "mlp_only_plus_dim2",
+    "all_linear_original_only",
+    "all_linear_plus_dim2"
+  ],
+  "placements": {
+    "q_only": [
+      "q_proj"
+    ],
+    "qv": [
+      "q_proj",
+      "v_proj"
+    ],
+    "attention_all": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "mlp_only": [
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "all_linear": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "max_steps": 232,
+  "training_max_length": 1536,
+  "validation_max_new_tokens": 512,
+  "seed": 42,
+  "learning_rate": 0.0002,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 16,
+  "warmup_steps": 20,
+  "bf16": true,
+  "gradient_checkpointing": true,
+  "use_cache": false,
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05
+  },
+  "all_linear_reference": "Reused from completed budget-control budget_original_only and budget_original_plus_dim2 outputs."
+}

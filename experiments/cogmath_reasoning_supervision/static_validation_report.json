@@ -1,0 +1,279 @@
+{
+  "passed": true,
+  "failures": [],
+  "checks": [
+    {
+      "name": "exactly 923 reasoning-training records",
+      "passed": true,
+      "details": {
+        "row_count": 923,
+        "unique_base_ids": 923,
+        "duplicate_record_ids": 0,
+        "condition_values": [
+          "reasoning_original_only"
+        ],
+        "dimension_values": [
+          0
+        ],
+        "answer_mismatches": [],
+        "trace_mismatches": [],
+        "targets_with_gsm8k_marker": [],
+        "malformed_targets": [],
+        "train_validation_overlap": [],
+        "train_test_overlap": [],
+        "validation_test_overlap": [],
+        "deterministic_rebuild_matches": true
+      }
+    },
+    {
+      "name": "unique training base IDs",
+      "passed": true,
+      "details": 923
+    },
+    {
+      "name": "no duplicate reasoning record IDs",
+      "passed": true,
+      "details": 0
+    },
+    {
+      "name": "only original dimension used",
+      "passed": true,
+      "details": [
+        0
+      ]
+    },
+    {
+      "name": "reasoning condition exact",
+      "passed": true,
+      "details": [
+        "reasoning_original_only"
+      ]
+    },
+    {
+      "name": "reasoning trace corresponds to source record",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "answer_raw final answer agrees with final_answer",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no #### marker remains in training_target",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "all targets end with Final answer: <gold>",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "deterministic dataset generation",
+      "passed": true,
+      "details": true
+    },
+    {
+      "name": "no train/validation/test leakage",
+      "passed": true,
+      "details": {
+        "train_validation_overlap": [],
+        "train_test_overlap": [],
+        "validation_test_overlap": []
+      }
+    },
+    {
+      "name": "tokenizer length check available when required",
+      "passed": true,
+      "details": {
+        "character_lengths": {
+          "min": 318,
+          "median": 657,
+          "p90": 980.8000000000001,
+          "p95": 1072.3999999999999,
+          "p99": 1342.4799999999996,
+          "max": 1776
+        },
+        "whitespace_token_lengths": {
+          "min": 50,
+          "median": 118,
+          "p90": 177.0,
+          "p95": 193.0,
+          "p99": 237.1199999999999,
+          "max": 335
+        },
+        "tokenizer_status": "unavailable",
+        "model_name": "Qwen/Qwen3-4B-Base",
+        "candidate_max_lengths": [
+          512,
+          768,
+          1024,
+          1536,
+          2048
+        ],
+        "chosen_max_length": 768,
+        "chosen_max_length_status": "provisional_until_exact_tokenizer_check",
+        "examples_over_candidate_lengths": {
+          "512": 0,
+          "768": 0,
+          "1024": 0,
+          "1536": 0,
+          "2048": 0
+        },
+        "tokenizer_error": "ModuleNotFoundError: No module named 'transformers'"
+      }
+    },
+    {
+      "name": "no silent sequence truncation at configured max_length",
+      "passed": true,
+      "details": {
+        "configured_max_length": 768,
+        "token_stats": {
+          "character_lengths": {
+            "min": 318,
+            "median": 657,
+            "p90": 980.8000000000001,
+            "p95": 1072.3999999999999,
+            "p99": 1342.4799999999996,
+            "max": 1776
+          },
+          "whitespace_token_lengths": {
+            "min": 50,
+            "median": 118,
+            "p90": 177.0,
+            "p95": 193.0,
+            "p99": 237.1199999999999,
+            "max": 335
+          },
+          "tokenizer_status": "unavailable",
+          "model_name": "Qwen/Qwen3-4B-Base",
+          "candidate_max_lengths": [
+            512,
+            768,
+            1024,
+            1536,
+            2048
+          ],
+          "chosen_max_length": 768,
+          "chosen_max_length_status": "provisional_until_exact_tokenizer_check",
+          "examples_over_candidate_lengths": {
+            "512": 0,
+            "768": 0,
+            "1024": 0,
+            "1536": 0,
+            "2048": 0
+          },
+          "tokenizer_error": "ModuleNotFoundError: No module named 'transformers'"
+        }
+      }
+    },
+    {
+      "name": "output root is separate from existing unique-full experiment",
+      "passed": true,
+      "details": {
+        "output_root": "outputs/cogmath_reasoning_supervision_qwen3_4b",
+        "unique_full_output_root": "outputs/cogmath_augmentation_qwen3_4b_unique_full"
+      }
+    },
+    {
+      "name": "LoRA modules match direct-answer all-linear setup",
+      "passed": true,
+      "details": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    },
+    {
+      "name": "python syntax parses",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_supervision/analyze_reasoning_supervision.py": "ok",
+        "experiments/cogmath_reasoning_supervision/analyze_reasoning_supervision_512.py": "ok",
+        "experiments/cogmath_reasoning_supervision/evaluate_reasoning.py": "ok",
+        "experiments/cogmath_reasoning_supervision/prepare_reasoning_data.py": "ok",
+        "experiments/cogmath_reasoning_supervision/reasoning_utils.py": "ok",
+        "experiments/cogmath_reasoning_supervision/static_validation.py": "ok",
+        "experiments/cogmath_reasoning_supervision/static_validation_512.py": "ok",
+        "experiments/cogmath_reasoning_supervision/train_reasoning_lora.py": "ok"
+      }
+    },
+    {
+      "name": "json files parse",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_supervision/data/dataset_report.json": "ok",
+        "experiments/cogmath_reasoning_supervision/resolved_configs/reasoning_original_only.json": "ok",
+        "experiments/cogmath_reasoning_supervision/resolved_configs/reasoning_validation_eval.json": "ok",
+        "experiments/cogmath_reasoning_supervision/resolved_configs/reasoning_validation_eval_512.json": "ok",
+        "experiments/cogmath_reasoning_supervision/static_validation_512_report.json": "ok",
+        "experiments/cogmath_reasoning_supervision/static_validation_report.json": "ok"
+      }
+    },
+    {
+      "name": "slurm bash syntax",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_supervision/slurm/analyze_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/analyze_validation_512.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/evaluate_validation_512_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/evaluate_validation_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/static_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/train_reasoning_original_only.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/train_smoke_reasoning.sh": {
+          "returncode": 0,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "name": "adapter files present when strict adapter check requested",
+      "passed": true,
+      "details": {
+        "strict_adapter_check": false,
+        "adapter_presence": {
+          "direct_original_only_adapter": false,
+          "reasoning_adapter": false
+        }
+      }
+    },
+    {
+      "name": "existing direct-answer validation reference present when required",
+      "passed": true,
+      "details": {
+        "strict_direct_reference_check": false,
+        "dir": "outputs/cogmath_augmentation_qwen3_4b_unique_full/validation_evaluations/original_only",
+        "predictions_jsonl": false,
+        "summary_json": false
+      }
+    }
+  ],
+  "notes": [
+    "Normal local validation permits missing transformers/tokenizer and missing cluster adapters.",
+    "Use --require-tokenizer on the cluster before training to confirm exact Qwen token lengths.",
+    "No test evaluation script is created for this diagnostic."
+  ]
+}

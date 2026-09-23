@@ -1,0 +1,4 @@
+condition,rows,correct,accuracy,corrections,regressions,stable_correct,stable_incorrect,mean_generated_tokens,max_generated_tokens,cap_hits
+first_pass_no_revision,990,648,0.6545454545454545,0,0,648,342,0.0,0,0
+causal_revision,990,431,0.4353535353535353,5,222,426,337,108.22222222222223,128,408
+bidir_trace_revision,990,1,0.00101010101010101,0,647,1,342,127.88080808080808,128,988

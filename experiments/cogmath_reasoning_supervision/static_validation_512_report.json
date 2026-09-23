@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "failures": [],
+  "checks": [
+    {
+      "name": "512 results cannot overwrite 256 results",
+      "passed": true,
+      "details": {
+        "output_256": "outputs/cogmath_reasoning_supervision_qwen3_4b/validation_evaluations",
+        "output_512": "outputs/cogmath_reasoning_supervision_qwen3_4b/validation_evaluations_512"
+      }
+    },
+    {
+      "name": "512 analysis directory is separate",
+      "passed": true,
+      "details": {
+        "analysis_512": "outputs/cogmath_reasoning_supervision_qwen3_4b/validation_analysis_512"
+      }
+    },
+    {
+      "name": "same validation record count available",
+      "passed": true,
+      "details": 990
+    },
+    {
+      "name": "same prompt template and evaluator are used",
+      "passed": true,
+      "details": {
+        "evaluator": "experiments/cogmath_reasoning_supervision/evaluate_reasoning.py"
+      }
+    },
+    {
+      "name": "same adapters are referenced",
+      "passed": true,
+      "details": {
+        "direct_adapter": "outputs/cogmath_augmentation_qwen3_4b_unique_full/adapters/original_only",
+        "reasoning_adapter": "outputs/cogmath_reasoning_supervision_qwen3_4b/adapters/reasoning_original_only"
+      }
+    },
+    {
+      "name": "only inference generation budget changes to 512",
+      "passed": true,
+      "details": {
+        "eval_script": "experiments/cogmath_reasoning_supervision/slurm/evaluate_validation_512_array.sh"
+      }
+    },
+    {
+      "name": "no test-set access in 512 jobs",
+      "passed": true,
+      "details": {
+        "eval_script": "experiments/cogmath_reasoning_supervision/slurm/evaluate_validation_512_array.sh",
+        "analysis_script": "experiments/cogmath_reasoning_supervision/slurm/analyze_validation_512.sh"
+      }
+    },
+    {
+      "name": "python syntax parses",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_supervision/evaluate_reasoning.py": "ok",
+        "experiments/cogmath_reasoning_supervision/analyze_reasoning_supervision_512.py": "ok",
+        "experiments/cogmath_reasoning_supervision/static_validation_512.py": "ok"
+      }
+    },
+    {
+      "name": "512 json configs parse",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_supervision/resolved_configs/reasoning_validation_eval_512.json": "ok"
+      }
+    },
+    {
+      "name": "512 slurm bash syntax",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_supervision/slurm/evaluate_validation_512_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_supervision/slurm/analyze_validation_512.sh": {
+          "returncode": 0,
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "name": "adapter presence is not required for local static validation",
+      "passed": true,
+      "details": {
+        "direct_adapter_present": true,
+        "reasoning_adapter_present": true
+      }
+    },
+    {
+      "name": "strict result record IDs/order match validation and 256 outputs",
+      "passed": true,
+      "details": {
+        "strict_results_check": true,
+        "validation_record_count": 990,
+        "pairs": {
+          "base_reasoning_prompt_vs_base_reasoning_prompt_512": {
+            "has_256_predictions": true,
+            "has_512_predictions": true,
+            "same_as_validation_order_256": true,
+            "same_as_validation_order_512": true,
+            "same_256_512_order": true
+          },
+          "direct_adapter_reasoning_prompt_vs_direct_adapter_reasoning_prompt_512": {
+            "has_256_predictions": true,
+            "has_512_predictions": true,
+            "same_as_validation_order_256": true,
+            "same_as_validation_order_512": true,
+            "same_256_512_order": true
+          },
+          "reasoning_adapter_reasoning_prompt_vs_reasoning_adapter_reasoning_prompt_512": {
+            "has_256_predictions": true,
+            "has_512_predictions": true,
+            "same_as_validation_order_256": true,
+            "same_as_validation_order_512": true,
+            "same_256_512_order": true
+          }
+        }
+      }
+    }
+  ],
+  "conditions_512": [
+    "base_reasoning_prompt_512",
+    "direct_adapter_reasoning_prompt_512",
+    "reasoning_adapter_reasoning_prompt_512"
+  ],
+  "notes": [
+    "This is evaluation-only; no training files or adapters are modified.",
+    "Use --strict-results-check after 512 predictions are complete."
+  ]
+}

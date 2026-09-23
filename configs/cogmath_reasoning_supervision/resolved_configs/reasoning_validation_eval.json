@@ -1,0 +1,21 @@
+{
+  "experiment": "cogmath_reasoning_supervision_qwen3_4b",
+  "eval_file": "experiments/cogmath_augmentation/validation_eval.jsonl",
+  "test_set_used": false,
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "prompt_protocol": "reasoning",
+  "max_new_tokens": 256,
+  "batch_size": 8,
+  "warmup_generations": 1,
+  "do_sample": false,
+  "conditions": [
+    "base_reasoning_prompt",
+    "direct_adapter_reasoning_prompt",
+    "reasoning_adapter_reasoning_prompt"
+  ],
+  "direct_answer_reference": {
+    "condition": "direct_adapter_direct_prompt_existing",
+    "path": "outputs/cogmath_augmentation_qwen3_4b_unique_full/validation_evaluations/original_only",
+    "rerun": false
+  }
+}

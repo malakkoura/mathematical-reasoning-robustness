@@ -1,0 +1,31 @@
+{
+  "rows": 1846,
+  "unique_base_ids": 923,
+  "counts_by_dimension": {
+    "0": 923,
+    "2": 923
+  },
+  "max_steps": 232,
+  "estimated_example_presentations": 3692,
+  "effective_epochs": 2.0,
+  "optimizer_steps_per_epoch": 116,
+  "incomplete_accumulation_groups_per_epoch": 1,
+  "last_group_examples_per_epoch": 6,
+  "nominal_full_accumulation_examples": 3712,
+  "shortfall_vs_nominal_full_accumulation": 20,
+  "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations.",
+  "measured_dataset_nonpadding_tokens": 407276,
+  "mean_nonpadding_tokens_per_example": 220.62621885157097,
+  "max_nonpadding_tokens": 554,
+  "estimated_nonpadding_tokens_processed": 814552.0,
+  "token_exposure_note": "Pre-run token exposure is estimated from mean tokenized sequence length times estimated example presentations. Runtime training_exposure.json records observed non-padding token presentations when dataloader_num_workers=0.",
+  "actual_completed_optimizer_steps": 232,
+  "observed_example_presentations": 3692,
+  "examples_presented": 3692,
+  "example_presentation_count_source": "observed_dataset_getitem_count_with_dataloader_num_workers_0",
+  "observed_effective_epochs": 2.0,
+  "observed_nonpadding_tokens_processed": 814552,
+  "estimated_vs_observed_example_difference": 0,
+  "trainable_parameter_count": 16515072,
+  "final_training_loss": 0.37067759473775996
+}

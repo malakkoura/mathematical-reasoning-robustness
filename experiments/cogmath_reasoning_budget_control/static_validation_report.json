@@ -1,0 +1,490 @@
+{
+  "passed": true,
+  "failures": [],
+  "checks": [
+    {
+      "name": "condition mapping exact",
+      "passed": true,
+      "details": {
+        "budget_original_only": "reasoning_original_only",
+        "budget_original_plus_dim2": "reasoning_original_plus_dim2",
+        "budget_original_plus_dim4": "reasoning_original_plus_dim4",
+        "budget_original_plus_dim2_dim4": "reasoning_original_plus_dim2_dim4",
+        "budget_original_plus_all": "reasoning_original_plus_all"
+      }
+    },
+    {
+      "name": "expected dimension membership",
+      "passed": true,
+      "details": {
+        "budget_original_only": {
+          "0": 923,
+          "1": 0,
+          "2": 0,
+          "4": 0,
+          "6": 0
+        },
+        "budget_original_plus_dim2": {
+          "0": 923,
+          "1": 0,
+          "2": 923,
+          "4": 0,
+          "6": 0
+        },
+        "budget_original_plus_dim4": {
+          "0": 923,
+          "1": 0,
+          "2": 0,
+          "4": 923,
+          "6": 0
+        },
+        "budget_original_plus_dim2_dim4": {
+          "0": 923,
+          "1": 0,
+          "2": 923,
+          "4": 923,
+          "6": 0
+        },
+        "budget_original_plus_all": {
+          "0": 923,
+          "1": 923,
+          "2": 923,
+          "4": 923,
+          "6": 917
+        }
+      }
+    },
+    {
+      "name": "all source datasets have 923 base IDs",
+      "passed": true,
+      "details": {
+        "budget_original_only": 923,
+        "budget_original_plus_dim2": 923,
+        "budget_original_plus_dim4": 923,
+        "budget_original_plus_dim2_dim4": 923,
+        "budget_original_plus_all": 923
+      }
+    },
+    {
+      "name": "pre-run example presentation estimates account for incomplete accumulation groups",
+      "passed": true,
+      "details": {
+        "budget_original_only": 3692,
+        "budget_original_plus_dim2": 3692,
+        "budget_original_plus_dim4": 3692,
+        "budget_original_plus_dim2_dim4": 3697,
+        "budget_original_plus_all": 3712
+      }
+    },
+    {
+      "name": "no duplicate record IDs in source datasets",
+      "passed": true,
+      "details": {
+        "budget_original_only": [],
+        "budget_original_plus_dim2": [],
+        "budget_original_plus_dim4": [],
+        "budget_original_plus_dim2_dim4": [],
+        "budget_original_plus_all": []
+      }
+    },
+    {
+      "name": "existing source dataset hashes unchanged",
+      "passed": true,
+      "details": {
+        "budget_original_only": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9",
+        "budget_original_plus_dim2": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785",
+        "budget_original_plus_dim4": "fc93145d59962fbcc965ad86ba2664e337a1e7ce8035edeb56e531df3cf8cf6e",
+        "budget_original_plus_dim2_dim4": "be4497c52f9e14a3486b8af650d130790020a381a2faf74d75afd4595169fea5",
+        "budget_original_plus_all": "a6b2e31a29a0774fb64a4bc0fed3dea5c77130bb71d4f7e8ccfb7b199b803354"
+      }
+    },
+    {
+      "name": "no generated dataset jsonl files in new experiment",
+      "passed": true,
+      "details": "experiments/cogmath_reasoning_budget_control/data"
+    },
+    {
+      "name": "no validation leakage",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "no split-test leakage",
+      "passed": true,
+      "details": []
+    },
+    {
+      "name": "known invalid Dim6 records remain excluded",
+      "passed": true,
+      "details": {
+        "present_invalid_records": [],
+        "dim6_count_in_all": 917
+      }
+    },
+    {
+      "name": "resolved config uses max_steps stopping",
+      "passed": true,
+      "details": {
+        "experiment": "cogmath_reasoning_budget_control_qwen3_4b",
+        "model_name": "Qwen/Qwen3-4B-Base",
+        "output_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+        "conditions": [
+          "budget_original_only",
+          "budget_original_plus_dim2",
+          "budget_original_plus_dim4",
+          "budget_original_plus_dim2_dim4",
+          "budget_original_plus_all"
+        ],
+        "max_steps": 232,
+        "stopping_criterion": "max_steps",
+        "training_max_length": 1536,
+        "validation_max_new_tokens": 512,
+        "seed": 42,
+        "learning_rate": 0.0002,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "warmup_steps": 20,
+        "bf16": true,
+        "gradient_checkpointing": true,
+        "use_cache": false,
+        "lora": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ]
+        },
+        "methodological_note": "Optimizer updates are controlled exactly with max_steps=232. Example presentations are not assumed to equal max_steps * gradient_accumulation_steps because Transformers can perform optimizer steps on incomplete accumulation groups at finite-dataset epoch boundaries."
+      }
+    },
+    {
+      "name": "training max_length is 1536",
+      "passed": true,
+      "details": 1536
+    },
+    {
+      "name": "validation max_new_tokens is 512",
+      "passed": true,
+      "details": 512
+    },
+    {
+      "name": "same model and seed",
+      "passed": true,
+      "details": {
+        "model": "Qwen/Qwen3-4B-Base",
+        "seed": 42
+      }
+    },
+    {
+      "name": "LoRA config fixed",
+      "passed": true,
+      "details": {
+        "rank": 8,
+        "alpha": 16,
+        "dropout": 0.05,
+        "target_modules": [
+          "q_proj",
+          "k_proj",
+          "v_proj",
+          "o_proj",
+          "gate_proj",
+          "up_proj",
+          "down_proj"
+        ]
+      }
+    },
+    {
+      "name": "training hyperparameters fixed",
+      "passed": true,
+      "details": {
+        "experiment": "cogmath_reasoning_budget_control_qwen3_4b",
+        "model_name": "Qwen/Qwen3-4B-Base",
+        "output_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+        "conditions": [
+          "budget_original_only",
+          "budget_original_plus_dim2",
+          "budget_original_plus_dim4",
+          "budget_original_plus_dim2_dim4",
+          "budget_original_plus_all"
+        ],
+        "max_steps": 232,
+        "stopping_criterion": "max_steps",
+        "training_max_length": 1536,
+        "validation_max_new_tokens": 512,
+        "seed": 42,
+        "learning_rate": 0.0002,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "warmup_steps": 20,
+        "bf16": true,
+        "gradient_checkpointing": true,
+        "use_cache": false,
+        "lora": {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "target_modules": [
+            "q_proj",
+            "k_proj",
+            "v_proj",
+            "o_proj",
+            "gate_proj",
+            "up_proj",
+            "down_proj"
+          ]
+        },
+        "methodological_note": "Optimizer updates are controlled exactly with max_steps=232. Example presentations are not assumed to equal max_steps * gradient_accumulation_steps because Transformers can perform optimizer steps on incomplete accumulation groups at finite-dataset epoch boundaries."
+      }
+    },
+    {
+      "name": "training array maps all five conditions exactly",
+      "passed": true,
+      "details": [
+        "budget_original_only",
+        "budget_original_plus_dim2",
+        "budget_original_plus_dim4",
+        "budget_original_plus_dim2_dim4",
+        "budget_original_plus_all"
+      ]
+    },
+    {
+      "name": "validation array maps all five conditions exactly",
+      "passed": true,
+      "details": [
+        "budget_original_only",
+        "budget_original_plus_dim2",
+        "budget_original_plus_dim4",
+        "budget_original_plus_dim2_dim4",
+        "budget_original_plus_all"
+      ]
+    },
+    {
+      "name": "all five array training jobs use max_steps 232",
+      "passed": true,
+      "details": {
+        "train_array": true
+      }
+    },
+    {
+      "name": "smoke uses short max_steps stopping",
+      "passed": true,
+      "details": {
+        "smoke": true
+      }
+    },
+    {
+      "name": "all training jobs use max_length 1536",
+      "passed": true,
+      "details": {
+        "train": true,
+        "smoke": true
+      }
+    },
+    {
+      "name": "validation script uses max_new_tokens 512",
+      "passed": true,
+      "details": "#!/bin/bash\n#SBATCH --job-name=cogmath_reason_budget_val\n#SBATCH --partition=gpus24\n#SBATCH --gres=gpu:1\n#SBATCH --time=18:00:00\n#SBATCH --array=0-4\n#SBATCH --output=experiments/cogmath_reasoning_budget_control/logs/%x_%A_%a.out\n#SBATCH --error=experiments/cogmath_reasoning_budget_control/logs/%x_%A_%a.err\n\nset -euo pipefail\n\nsource $CONDA_SH\nconda activate $CONDA_ENV\n\nexport PYTHONUNBUFFERED=1\nexport HF_HOME=$HF_HOME\nexport HF_DATASETS_CACHE=$HF_HOME/datasets\nexport TRANSFORMERS_CACHE=$HF_HOME/transformers\n\nCONDITIONS=(\n  budget_original_only\n  budget_original_plus_dim2\n  budget_original_plus_dim4\n  budget_original_plus_dim2_dim4\n  budget_original_plus_all\n)\n\ncheck_adapter() {\n  local adapter_dir=\"$1\"\n  if [[ ! -f \"${adapter_dir}/adapter_config.json\" ]]; then\n    echo \"Missing adapter_config.json in ${adapter_dir}\" >&2\n    exit 1\n  fi\n  if [[ ! -f \"${adapter_dir}/adapter_model.safetensors\" && ! -f \"${adapter_dir}/adapter_model.bin\" ]]; then\n    echo \"Missing adapter weights in ${adapter_dir}\" >&2\n    exit 1\n  fi\n}\n\nCONDITION=\"${CONDITIONS[$SLURM_ARRAY_TASK_ID]}\"\nOUTPUT_ROOT=outputs/cogmath_reasoning_budget_control_qwen3_4b\nADAPTER_DIR=\"${OUTPUT_ROOT}/adapters/${CONDITION}\"\nEVAL_OUTPUT=\"${OUTPUT_ROOT}/validation_evaluations/${CONDITION}\"\n\nmkdir -p experiments/cogmath_reasoning_budget_control/logs\nmkdir -p \"${EVAL_OUTPUT}\"\n\nif [[ -f \"${EVAL_OUTPUT}/predictions.jsonl\" ]]; then\n  echo \"Refusing to overwrite existing ${EVAL_OUTPUT}/predictions.jsonl\" >&2\n  exit 1\nfi\n\ncheck_adapter \"${ADAPTER_DIR}\"\n\npython -u experiments/cogmath_reasoning_budget_control/evaluate_budget_control.py \\\n  --model_name Qwen/Qwen3-4B-Base \\\n  --adapter_dir \"${ADAPTER_DIR}\" \\\n  --condition \"${CONDITION}\" \\\n  --eval_file experiments/cogmath_augmentation/validation_eval.jsonl \\\n  --output_dir \"${EVAL_OUTPUT}\" \\\n  --batch_size 8 \\\n  --max_new_tokens 512 \\\n  --warmup_generations 1 \\\n  --cache_dir $HF_HOME\n"
+    },
+    {
+      "name": "no test-eval path referenced",
+      "passed": true,
+      "details": "checked without opening held-out evaluation data"
+    },
+    {
+      "name": "separate output root",
+      "passed": true,
+      "details": "outputs/cogmath_reasoning_budget_control_qwen3_4b"
+    },
+    {
+      "name": "validation record count is 990",
+      "passed": true,
+      "details": "experiments/cogmath_augmentation/validation_eval.jsonl"
+    },
+    {
+      "name": "python syntax parses",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_budget_control/analyze_budget_control.py": "ok",
+        "experiments/cogmath_reasoning_budget_control/budget_control_utils.py": "ok",
+        "experiments/cogmath_reasoning_budget_control/evaluate_budget_control.py": "ok",
+        "experiments/cogmath_reasoning_budget_control/prepare_budget_control.py": "ok",
+        "experiments/cogmath_reasoning_budget_control/static_validation.py": "ok",
+        "experiments/cogmath_reasoning_budget_control/train_budget_control.py": "ok"
+      }
+    },
+    {
+      "name": "json files parse",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_budget_control/dataset_report.json": "ok",
+        "experiments/cogmath_reasoning_budget_control/resolved_configs/budget_control.json": "ok",
+        "experiments/cogmath_reasoning_budget_control/static_validation_report.json": "ok"
+      }
+    },
+    {
+      "name": "slurm bash syntax",
+      "passed": true,
+      "details": {
+        "experiments/cogmath_reasoning_budget_control/slurm/analyze_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_budget_control/slurm/evaluate_validation_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_budget_control/slurm/smoke_max_steps.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_budget_control/slurm/static_validation.sh": {
+          "returncode": 0,
+          "stderr": ""
+        },
+        "experiments/cogmath_reasoning_budget_control/slurm/train_array.sh": {
+          "returncode": 0,
+          "stderr": ""
+        }
+      }
+    }
+  ],
+  "dataset_report": {
+    "experiment": "cogmath_reasoning_budget_control_qwen3_4b",
+    "model_name": "Qwen/Qwen3-4B-Base",
+    "output_root": "outputs/cogmath_reasoning_budget_control_qwen3_4b",
+    "source_data_dir": "experiments/cogmath_reasoning_augmentation/data",
+    "training_max_length": 1536,
+    "max_steps": 232,
+    "validation_max_new_tokens": 512,
+    "seed": 42,
+    "note": "The optimizer update budget is controlled with max_steps=232. Example and token exposure may still differ because Transformers can step on incomplete accumulation groups at finite-dataset epoch boundaries and examples have different lengths.",
+    "conditions": {
+      "budget_original_only": {
+        "rows": 923,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923
+        },
+        "budget_condition": "budget_original_only",
+        "source_condition": "reasoning_original_only",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+        "source_sha256": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9",
+        "max_steps": 232,
+        "gradient_accumulation_steps": 16,
+        "per_device_train_batch_size": 1,
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 4.0,
+        "optimizer_steps_per_epoch": 58,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 11,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      },
+      "budget_original_plus_dim2": {
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "2": 923
+        },
+        "budget_condition": "budget_original_plus_dim2",
+        "source_condition": "reasoning_original_plus_dim2",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+        "source_sha256": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785",
+        "max_steps": 232,
+        "gradient_accumulation_steps": 16,
+        "per_device_train_batch_size": 1,
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 2.0,
+        "optimizer_steps_per_epoch": 116,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 6,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      },
+      "budget_original_plus_dim4": {
+        "rows": 1846,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "4": 923
+        },
+        "budget_condition": "budget_original_plus_dim4",
+        "source_condition": "reasoning_original_plus_dim4",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim4.jsonl",
+        "source_sha256": "fc93145d59962fbcc965ad86ba2664e337a1e7ce8035edeb56e531df3cf8cf6e",
+        "max_steps": 232,
+        "gradient_accumulation_steps": 16,
+        "per_device_train_batch_size": 1,
+        "estimated_example_presentations": 3692,
+        "effective_epochs": 2.0,
+        "optimizer_steps_per_epoch": 116,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 6,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 20,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      },
+      "budget_original_plus_dim2_dim4": {
+        "rows": 2769,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "2": 923,
+          "4": 923
+        },
+        "budget_condition": "budget_original_plus_dim2_dim4",
+        "source_condition": "reasoning_original_plus_dim2_dim4",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2_dim4.jsonl",
+        "source_sha256": "be4497c52f9e14a3486b8af650d130790020a381a2faf74d75afd4595169fea5",
+        "max_steps": 232,
+        "gradient_accumulation_steps": 16,
+        "per_device_train_batch_size": 1,
+        "estimated_example_presentations": 3697,
+        "effective_epochs": 1.3351390393643914,
+        "optimizer_steps_per_epoch": 174,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 1,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 15,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      },
+      "budget_original_plus_all": {
+        "rows": 4609,
+        "unique_base_ids": 923,
+        "counts_by_dimension": {
+          "0": 923,
+          "1": 923,
+          "2": 923,
+          "4": 923,
+          "6": 917
+        },
+        "budget_condition": "budget_original_plus_all",
+        "source_condition": "reasoning_original_plus_all",
+        "source_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl",
+        "source_sha256": "a6b2e31a29a0774fb64a4bc0fed3dea5c77130bb71d4f7e8ccfb7b199b803354",
+        "max_steps": 232,
+        "gradient_accumulation_steps": 16,
+        "per_device_train_batch_size": 1,
+        "estimated_example_presentations": 3712,
+        "effective_epochs": 0.8053807767411586,
+        "optimizer_steps_per_epoch": 289,
+        "incomplete_accumulation_groups_per_epoch": 1,
+        "last_group_examples_per_epoch": 1,
+        "nominal_full_accumulation_examples": 3712,
+        "shortfall_vs_nominal_full_accumulation": 0,
+        "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations."
+      }
+    }
+  },
+  "note": "Static validation reads split IDs but does not open or evaluate the held-out evaluation file."
+}

@@ -1,0 +1,13 @@
+{
+  "attention_static_validation": "python -u experiments/cogmath_reasoning_attention_control/static_validation.py --require-causal-references --require-runtime-diagnostics",
+  "budget_static_validation": "python -u experiments/cogmath_reasoning_budget_control/static_validation.py",
+  "copy_back_relevant_outputs": "rsync -av $USER@$IMPERIAL_LOGIN:outputs/cogmath_reasoning_budget_control_qwen3_4b/ outputs/cogmath_reasoning_budget_control_qwen3_4b/",
+  "monitor_jobs": "squeue -u "$USER"",
+  "submit_attention_prompt_bidir_training": "sbatch experiments/cogmath_reasoning_attention_control/slurm/train_prompt_bidir_array.sh",
+  "submit_attention_validation": "sbatch experiments/cogmath_reasoning_attention_control/slurm/evaluate_validation_array.sh",
+  "submit_budget_training_seed42_existing_script": "sbatch experiments/cogmath_reasoning_budget_control/slurm/train_array.sh",
+  "submit_budget_validation": "sbatch experiments/cogmath_reasoning_budget_control/slurm/evaluate_validation_array.sh",
+  "submit_primary_three_seed_training": "sbatch analysis/final_thesis/slurm/train_budget_dim2_three_seed_array.sh",
+  "submit_primary_three_seed_validation": "sbatch analysis/final_thesis/slurm/evaluate_budget_dim2_three_seed_array.sh",
+  "upload_analysis_files": "rsync -av analysis/final_thesis/ analysis/final_thesis/"
+}

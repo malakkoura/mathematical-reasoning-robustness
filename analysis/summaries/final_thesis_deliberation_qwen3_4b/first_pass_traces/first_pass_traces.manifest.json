@@ -1,0 +1,19 @@
+{
+  "source_predictions": "outputs/cogmath_reasoning_budget_control_qwen3_4b_final_thesis_seeds/seed_42/validation_evaluations/budget_original_plus_dim2/predictions.jsonl",
+  "rows": 990,
+  "unique_record_ids": 990,
+  "unique_base_ids": 198,
+  "dimension_counts": {
+    "0": 198,
+    "1": 198,
+    "2": 198,
+    "4": 198,
+    "6": 198
+  },
+  "first_pass_correct": 648,
+  "first_pass_accuracy": 0.6545454545454545,
+  "eval_file": "experiments/cogmath_augmentation/validation_eval.jsonl",
+  "output_file": "outputs/final_thesis_deliberation_qwen3_4b/first_pass_traces/first_pass_traces.jsonl",
+  "test_set_used": false,
+  "trace_policy": "one completed first-pass validation trace per record; no held-out test records read"
+}

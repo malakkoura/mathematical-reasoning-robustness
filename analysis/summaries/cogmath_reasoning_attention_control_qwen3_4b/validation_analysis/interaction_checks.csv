@@ -1,0 +1,6 @@
+metric,causal_dim2_gain,prompt_bidir_dim2_gain,interaction_difference_prompt_bidir_minus_causal,note
+overall_accuracy,0.03838383838383841,0.025252525252525304,-0.013131313131313105,Descriptive difference-in-differences; inspect paired comparisons before interpretation.
+original_accuracy,0.02020202020202022,-0.015151515151515138,-0.03535353535353536,Descriptive difference-in-differences; inspect paired comparisons before interpretation.
+dim2_accuracy,0.15656565656565657,0.12121212121212122,-0.03535353535353536,Descriptive difference-in-differences; inspect paired comparisons before interpretation.
+mean_transformed_accuracy,0.04292929292929293,0.03535353535353536,-0.007575757575757569,Descriptive difference-in-differences; inspect paired comparisons before interpretation.
+robustness_gap,-0.022727272727272707,-0.0505050505050505,-0.02777777777777779,Descriptive difference-in-differences; inspect paired comparisons before interpretation.

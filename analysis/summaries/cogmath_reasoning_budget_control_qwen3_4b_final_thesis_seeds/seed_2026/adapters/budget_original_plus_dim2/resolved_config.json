@@ -1,0 +1,53 @@
+{
+  "experiment": "cogmath_reasoning_budget_control_qwen3_4b",
+  "condition": "budget_original_plus_dim2",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "train_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+  "seed": 2026,
+  "max_steps": 232,
+  "learning_rate": 0.0002,
+  "max_length": 1536,
+  "smoke_samples": 0,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 16,
+  "warmup_steps": 20,
+  "bf16": true,
+  "gradient_checkpointing": true,
+  "use_cache": false,
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training_exposure_planned": {
+    "rows": 1846,
+    "unique_base_ids": 923,
+    "counts_by_dimension": {
+      "0": 923,
+      "2": 923
+    },
+    "max_steps": 232,
+    "estimated_example_presentations": 3692,
+    "effective_epochs": 2.0,
+    "optimizer_steps_per_epoch": 116,
+    "incomplete_accumulation_groups_per_epoch": 1,
+    "last_group_examples_per_epoch": 6,
+    "nominal_full_accumulation_examples": 3712,
+    "shortfall_vs_nominal_full_accumulation": 20,
+    "example_presentation_estimate_note": "Estimated using Transformers finite-dataset epoch-local gradient-accumulation grouping; runtime training_exposure.json records observed dataset item presentations.",
+    "measured_dataset_nonpadding_tokens": 407276,
+    "mean_nonpadding_tokens_per_example": 220.62621885157097,
+    "max_nonpadding_tokens": 554,
+    "estimated_nonpadding_tokens_processed": 814552.0,
+    "token_exposure_note": "Pre-run token exposure is estimated from mean tokenized sequence length times estimated example presentations. Runtime training_exposure.json records observed non-padding token presentations when dataloader_num_workers=0."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "experiment": "cogmath_reasoning_supervision_qwen3_4b",
+  "diagnostic": "separate_512_token_validation_evaluation",
+  "eval_file": "experiments/cogmath_augmentation/validation_eval.jsonl",
+  "test_set_used": false,
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "prompt_protocol": "reasoning",
+  "prompt_template": "reasoning_utils.REASONING_PROMPT_TEMPLATE",
+  "scorer": "evaluate_reasoning.extract_after_final_marker + experiment_utils.answers_match",
+  "max_new_tokens": 512,
+  "batch_size": 8,
+  "warmup_generations": 1,
+  "do_sample": false,
+  "output_root": "outputs/cogmath_reasoning_supervision_qwen3_4b/validation_evaluations_512",
+  "analysis_root": "outputs/cogmath_reasoning_supervision_qwen3_4b/validation_analysis_512",
+  "conditions": [
+    {
+      "condition": "base_reasoning_prompt_512",
+      "adapter_dir": null
+    },
+    {
+      "condition": "direct_adapter_reasoning_prompt_512",
+      "adapter_dir": "outputs/cogmath_augmentation_qwen3_4b_unique_full/adapters/original_only"
+    },
+    {
+      "condition": "reasoning_adapter_reasoning_prompt_512",
+      "adapter_dir": "outputs/cogmath_reasoning_supervision_qwen3_4b/adapters/reasoning_original_only"
+    }
+  ],
+  "matched_256_reference_root": "outputs/cogmath_reasoning_supervision_qwen3_4b/validation_evaluations",
+  "direct_answer_reference": {
+    "condition": "direct_adapter_direct_prompt_existing",
+    "path": "outputs/cogmath_augmentation_qwen3_4b_unique_full/validation_evaluations/original_only",
+    "rerun": false
+  }
+}
+

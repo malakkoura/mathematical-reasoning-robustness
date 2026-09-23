@@ -1,0 +1,77 @@
+{
+  "condition": "direct_adapter_reasoning_prompt_512",
+  "overall": {
+    "correct": 261,
+    "total": 990,
+    "accuracy": 0.2636363636363636
+  },
+  "original": {
+    "correct": 65,
+    "total": 198,
+    "accuracy": 0.3282828282828283
+  },
+  "by_dimension": {
+    "original": {
+      "correct": 65,
+      "total": 198,
+      "accuracy": 0.3282828282828283
+    },
+    "dim1_paraphrasing": {
+      "correct": 66,
+      "total": 198,
+      "accuracy": 0.3333333333333333
+    },
+    "dim2_word_scrambling": {
+      "correct": 11,
+      "total": 198,
+      "accuracy": 0.05555555555555555
+    },
+    "dim4_irrelevant_information": {
+      "correct": 63,
+      "total": 198,
+      "accuracy": 0.3181818181818182
+    },
+    "dim6_numerical_variation": {
+      "correct": 56,
+      "total": 198,
+      "accuracy": 0.2828282828282828
+    }
+  },
+  "mean_variant_accuracy": {
+    "dimensions": [
+      "dim1_paraphrasing",
+      "dim2_word_scrambling",
+      "dim4_irrelevant_information",
+      "dim6_numerical_variation"
+    ],
+    "accuracy": 0.24747474747474746,
+    "denominator": 792
+  },
+  "worst_dimension_accuracy": 0.05555555555555555,
+  "robustness_gap": 0.08080808080808083,
+  "matched_consistency_by_base_id": {
+    "all_forms_correct": 5,
+    "complete_case_base_ids": 198,
+    "rate": 0.025252525252525252
+  },
+  "all_forms_correct_rate": 0.025252525252525252,
+  "latency": {
+    "average_latency_seconds": 0.09109421875727639,
+    "median_latency_seconds": 0.08874819650372956,
+    "average_generated_tokens": 7.3262626262626265,
+    "average_tokens_per_second": 81.11031822672416
+  },
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "adapter_dir": "outputs/cogmath_augmentation_qwen3_4b_unique_full/adapters/original_only",
+  "eval_file": "experiments/cogmath_augmentation/validation_eval.jsonl",
+  "prompt_template": "reasoning_utils.REASONING_PROMPT_TEMPLATE",
+  "max_new_tokens": 512,
+  "batch_size": 8,
+  "warmup_generations": 1,
+  "diagnostics": {
+    "cap_hits": 0,
+    "cap_hit_rate": 0.0,
+    "missing_final_answer_markers": 0,
+    "missing_final_answer_marker_rate": 0.0
+  }
+}

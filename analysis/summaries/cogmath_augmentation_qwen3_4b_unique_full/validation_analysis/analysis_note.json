@@ -1,0 +1,51 @@
+{
+  "interpretation": "Comparisons reflect the practical effect of adding all available augmentation data, including both transformation content and additional unique training exposure. Training dataset sizes are intentionally unequal.",
+  "primary_comparisons": [
+    [
+      "original_only",
+      "original_plus_dim1"
+    ],
+    [
+      "original_only",
+      "original_plus_dim2"
+    ],
+    [
+      "original_only",
+      "original_plus_dim4"
+    ],
+    [
+      "original_only",
+      "original_plus_dim6"
+    ],
+    [
+      "original_only",
+      "original_plus_dim2_dim4"
+    ],
+    [
+      "original_only",
+      "original_plus_all"
+    ],
+    [
+      "original_plus_dim2",
+      "original_plus_dim2_dim4"
+    ],
+    [
+      "original_plus_dim4",
+      "original_plus_dim2_dim4"
+    ],
+    [
+      "original_plus_dim2_dim4",
+      "original_plus_all"
+    ]
+  ],
+  "conditions_analyzed": [
+    "base_untuned",
+    "original_only",
+    "original_plus_dim1",
+    "original_plus_dim2",
+    "original_plus_dim4",
+    "original_plus_dim6",
+    "original_plus_dim2_dim4",
+    "original_plus_all"
+  ]
+}

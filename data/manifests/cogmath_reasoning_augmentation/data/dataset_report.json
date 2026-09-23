@@ -1,0 +1,296 @@
+{
+  "experiment": "cogmath_reasoning_augmentation_qwen3_4b",
+  "model_name": "Qwen/Qwen3-4B-Base",
+  "training_max_length": 1536,
+  "conditions": {
+    "reasoning_original_only": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_only.jsonl",
+      "source_rows": 923,
+      "source_counts_by_dimension": {
+        "0": 923
+      },
+      "valid_reasoning_rows": 923,
+      "valid_counts_by_dimension": {
+        "0": 923
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_only.jsonl",
+      "sha256": "4fce930d6c14dd01e7122c2500ed4d894f6baea34dfd561f5029759306551ac9"
+    },
+    "reasoning_original_plus_dim1": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim1.jsonl",
+      "source_rows": 1846,
+      "source_counts_by_dimension": {
+        "0": 923,
+        "1": 923
+      },
+      "valid_reasoning_rows": 1846,
+      "valid_counts_by_dimension": {
+        "0": 923,
+        "1": 923
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim1.jsonl",
+      "sha256": "6fa59175b6cc68a09ddf69d1196dfb8c88ab8c80eb0a44ac85a78405cf671883"
+    },
+    "reasoning_original_plus_dim2": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim2.jsonl",
+      "source_rows": 1846,
+      "source_counts_by_dimension": {
+        "0": 923,
+        "2": 923
+      },
+      "valid_reasoning_rows": 1846,
+      "valid_counts_by_dimension": {
+        "0": 923,
+        "2": 923
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2.jsonl",
+      "sha256": "61b26c9d59beeea15aa8f6e0010ed4a4c3b8b91768180d337f37ffc515a87785"
+    },
+    "reasoning_original_plus_dim4": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim4.jsonl",
+      "source_rows": 1846,
+      "source_counts_by_dimension": {
+        "0": 923,
+        "4": 923
+      },
+      "valid_reasoning_rows": 1846,
+      "valid_counts_by_dimension": {
+        "0": 923,
+        "4": 923
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim4.jsonl",
+      "sha256": "fc93145d59962fbcc965ad86ba2664e337a1e7ce8035edeb56e531df3cf8cf6e"
+    },
+    "reasoning_original_plus_dim6": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim6.jsonl",
+      "source_rows": 1843,
+      "source_counts_by_dimension": {
+        "0": 923,
+        "6": 920
+      },
+      "valid_reasoning_rows": 1840,
+      "valid_counts_by_dimension": {
+        "0": 923,
+        "6": 917
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [
+        {
+          "record_id": "GSM8K@855_dim6",
+          "base_id": "GSM8K@855",
+          "dimension": 6,
+          "reason": "transformed setup does not yield the required valid integer-age solution"
+        },
+        {
+          "record_id": "GSM8K@1134_dim6",
+          "base_id": "GSM8K@1134",
+          "dimension": 6,
+          "reason": "reasoning concludes 5 while prepared final_answer is 75"
+        },
+        {
+          "record_id": "GSM8K@1155_dim6",
+          "base_id": "GSM8K@1155",
+          "dimension": 6,
+          "reason": "reasoning states the transformed problem cannot be calculated"
+        }
+      ],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim6.jsonl",
+      "sha256": "cb71e7735861233465b8abfc27688d0c366c4180561f9fc2bae5ce2bcbfbd2e6"
+    },
+    "reasoning_original_plus_dim2_dim4": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_dim2_dim4.jsonl",
+      "source_rows": 2769,
+      "source_counts_by_dimension": {
+        "0": 923,
+        "2": 923,
+        "4": 923
+      },
+      "valid_reasoning_rows": 2769,
+      "valid_counts_by_dimension": {
+        "0": 923,
+        "2": 923,
+        "4": 923
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_dim2_dim4.jsonl",
+      "sha256": "be4497c52f9e14a3486b8af650d130790020a381a2faf74d75afd4595169fea5"
+    },
+    "reasoning_original_plus_all": {
+      "source_file": "experiments/cogmath_augmentation/data_unique_full/train_original_plus_all.jsonl",
+      "source_rows": 4612,
+      "source_counts_by_dimension": {
+        "0": 923,
+        "1": 923,
+        "2": 923,
+        "4": 923,
+        "6": 920
+      },
+      "valid_reasoning_rows": 4609,
+      "valid_counts_by_dimension": {
+        "0": 923,
+        "1": 923,
+        "2": 923,
+        "4": 923,
+        "6": 917
+      },
+      "invalid_rows": [],
+      "explicit_data_quality_exclusions": [
+        {
+          "record_id": "GSM8K@855_dim6",
+          "base_id": "GSM8K@855",
+          "dimension": 6,
+          "reason": "transformed setup does not yield the required valid integer-age solution"
+        },
+        {
+          "record_id": "GSM8K@1134_dim6",
+          "base_id": "GSM8K@1134",
+          "dimension": 6,
+          "reason": "reasoning concludes 5 while prepared final_answer is 75"
+        },
+        {
+          "record_id": "GSM8K@1155_dim6",
+          "base_id": "GSM8K@1155",
+          "dimension": 6,
+          "reason": "reasoning states the transformed problem cannot be calculated"
+        }
+      ],
+      "blocked": false,
+      "output_file": "experiments/cogmath_reasoning_augmentation/data/train_reasoning_original_plus_all.jsonl",
+      "sha256": "a6b2e31a29a0774fb64a4bc0fed3dea5c77130bb71d4f7e8ccfb7b199b803354"
+    }
+  },
+  "explicit_data_quality_exclusions": [
+    {
+      "record_id": "GSM8K@855_dim6",
+      "base_id": "GSM8K@855",
+      "dimension": 6,
+      "reason": "transformed setup does not yield the required valid integer-age solution",
+      "condition": "reasoning_original_plus_dim6"
+    },
+    {
+      "record_id": "GSM8K@1134_dim6",
+      "base_id": "GSM8K@1134",
+      "dimension": 6,
+      "reason": "reasoning concludes 5 while prepared final_answer is 75",
+      "condition": "reasoning_original_plus_dim6"
+    },
+    {
+      "record_id": "GSM8K@1155_dim6",
+      "base_id": "GSM8K@1155",
+      "dimension": 6,
+      "reason": "reasoning states the transformed problem cannot be calculated",
+      "condition": "reasoning_original_plus_dim6"
+    },
+    {
+      "record_id": "GSM8K@855_dim6",
+      "base_id": "GSM8K@855",
+      "dimension": 6,
+      "reason": "transformed setup does not yield the required valid integer-age solution",
+      "condition": "reasoning_original_plus_all"
+    },
+    {
+      "record_id": "GSM8K@1134_dim6",
+      "base_id": "GSM8K@1134",
+      "dimension": 6,
+      "reason": "reasoning concludes 5 while prepared final_answer is 75",
+      "condition": "reasoning_original_plus_all"
+    },
+    {
+      "record_id": "GSM8K@1155_dim6",
+      "base_id": "GSM8K@1155",
+      "dimension": 6,
+      "reason": "reasoning states the transformed problem cannot be calculated",
+      "condition": "reasoning_original_plus_all"
+    }
+  ],
+  "expected_explicit_exclusions": [
+    {
+      "record_id": "GSM8K@1134_dim6",
+      "dimension": 6,
+      "reason": "reasoning concludes 5 while prepared final_answer is 75"
+    },
+    {
+      "record_id": "GSM8K@1155_dim6",
+      "dimension": 6,
+      "reason": "reasoning states the transformed problem cannot be calculated"
+    },
+    {
+      "record_id": "GSM8K@855_dim6",
+      "dimension": 6,
+      "reason": "transformed setup does not yield the required valid integer-age solution"
+    }
+  ],
+  "blocked_conditions": {},
+  "ready_for_six_condition_training": true,
+  "token_stats": {
+    "tokenizer_status": "available",
+    "character_lengths": {
+      "min": 295,
+      "median": 676,
+      "p90": 1010.0,
+      "p95": 1129.0,
+      "p99": 1412.4399999999987,
+      "max": 2882
+    },
+    "whitespace_token_lengths": {
+      "min": 49,
+      "median": 120,
+      "p90": 182.0,
+      "p95": 202.0,
+      "p99": 250.0,
+      "max": 508
+    },
+    "candidate_max_lengths": [
+      768,
+      1024,
+      1536,
+      2048
+    ],
+    "chosen_max_length": 1536,
+    "chosen_max_length_status": "exact",
+    "examples_over_candidate_lengths": {
+      "768": 4,
+      "1024": 2,
+      "1536": 0,
+      "2048": 0
+    },
+    "token_lengths": {
+      "min": 90,
+      "median": 213,
+      "p90": 318.0,
+      "p95": 354.0,
+      "p99": 445.21999999999935,
+      "max": 1309
+    }
+  },
+  "leakage": {
+    "train_validation_overlap": [],
+    "train_test_overlap": [],
+    "validation_test_overlap": [],
+    "split_source": "experiments/cogmath_augmentation/splits.json"
+  },
+  "array_conditions_requested": [
+    "reasoning_original_plus_dim1",
+    "reasoning_original_plus_dim2",
+    "reasoning_original_plus_dim4",
+    "reasoning_original_plus_dim6",
+    "reasoning_original_plus_dim2_dim4",
+    "reasoning_original_plus_all"
+  ],
+  "note": "Only explicit Dim6 data-quality exclusions are skipped; any other invalid reasoning trace blocks preparation."
+}
